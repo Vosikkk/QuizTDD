@@ -30,6 +30,9 @@
 		38994A062B93CCC0000D630B /* NavigationControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38994A052B93CCC0000D630B /* NavigationControllerRouter.swift */; };
 		38994A082B93E398000D630B /* QuestionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38994A072B93E398000D630B /* QuestionTest.swift */; };
 		38994A0A2B93EA69000D630B /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38994A092B93EA69000D630B /* Question.swift */; };
+		389AE6762B94BF1600532A04 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389AE6752B94BF1600532A04 /* ViewControllerFactory.swift */; };
+		389AE6782B94BFA700532A04 /* iOSViewControllerFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389AE6772B94BFA700532A04 /* iOSViewControllerFactoryTest.swift */; };
+		389AE67A2B94C0CE00532A04 /* iOSViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389AE6792B94C0CE00532A04 /* iOSViewControllerFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +85,9 @@
 		38994A052B93CCC0000D630B /* NavigationControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerRouter.swift; sourceTree = "<group>"; };
 		38994A072B93E398000D630B /* QuestionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTest.swift; sourceTree = "<group>"; };
 		38994A092B93EA69000D630B /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		389AE6752B94BF1600532A04 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		389AE6772B94BFA700532A04 /* iOSViewControllerFactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSViewControllerFactoryTest.swift; sourceTree = "<group>"; };
+		389AE6792B94C0CE00532A04 /* iOSViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSViewControllerFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +148,8 @@
 				3875563C2B8BFCE000C34BE4 /* UITableView+Extension.swift */,
 				38994A052B93CCC0000D630B /* NavigationControllerRouter.swift */,
 				38994A092B93EA69000D630B /* Question.swift */,
+				389AE6752B94BF1600532A04 /* ViewControllerFactory.swift */,
+				389AE6792B94C0CE00532A04 /* iOSViewControllerFactory.swift */,
 			);
 			path = QuizApp;
 			sourceTree = "<group>";
@@ -154,6 +162,7 @@
 				387556362B8BEA8200C34BE4 /* TableViewHelpers.swift */,
 				38994A032B93CAF4000D630B /* NavigationControllerRouterTest.swift */,
 				38994A072B93E398000D630B /* QuestionTest.swift */,
+				389AE6772B94BFA700532A04 /* iOSViewControllerFactoryTest.swift */,
 			);
 			path = QuizAppTests;
 			sourceTree = "<group>";
@@ -279,9 +288,11 @@
 				3875563F2B8BFD2300C34BE4 /* PresentableAnswer.swift in Sources */,
 				38994A0A2B93EA69000D630B /* Question.swift in Sources */,
 				387556432B8BFD5C00C34BE4 /* WrongAnswerCell.swift in Sources */,
+				389AE67A2B94C0CE00532A04 /* iOSViewControllerFactory.swift in Sources */,
 				38994A062B93CCC0000D630B /* NavigationControllerRouter.swift in Sources */,
 				38767FCD2B8AB6AA00F19F0F /* QuestionViewController.swift in Sources */,
 				387556332B8BDF3700C34BE4 /* ResultsViewController.swift in Sources */,
+				389AE6762B94BF1600532A04 /* ViewControllerFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +305,7 @@
 				38767FCB2B8AB5B500F19F0F /* QuestionViewControllerTest.swift in Sources */,
 				387556372B8BEA8200C34BE4 /* TableViewHelpers.swift in Sources */,
 				387556312B8BDE3E00C34BE4 /* ResultsViewControllerTest.swift in Sources */,
+				389AE6782B94BFA700532A04 /* iOSViewControllerFactoryTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
