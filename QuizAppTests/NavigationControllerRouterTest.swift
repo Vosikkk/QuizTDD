@@ -14,7 +14,7 @@ final class NavigationControllerRouterTest: XCTestCase {
     let navigationController: UINavigationController = NonAnimatedNavigationController()
     let factory: ViewControllerFactoryStub = ViewControllerFactoryStub()
     
-    lazy var sut: NavigationControllerRouter = { NavigationControllerRouter(navigationController, factory: factory) }()
+    lazy var sut: NavigationControllerRouter = NavigationControllerRouter(navigationController, factory: factory)
     
     func test_routeToQuestion_showsQuestionController() {
         let viewController = UIViewController()
@@ -31,12 +31,58 @@ final class NavigationControllerRouterTest: XCTestCase {
         XCTAssertEqual(navigationController.viewControllers.last, secondViewController)
     }
     
-    func test_routeToQuestion_presentsQuestionControllerWithRightCallback() {
+    func test_routeToQuestion_singleAnswer_answerCallback_progressesToNextQuestion() {
         var callBackWasFired: Bool = false
         
-        sut.routeTo(question: Question.singleAnswer("Q1"), answerCallback: { _ in  callBackWasFired = true })
+        sut.routeTo(question: Question.singleAnswer("Q1"), answerCallback: { _ in callBackWasFired = true })
         factory.answerCallbacks[Question.singleAnswer("Q1")]!(["anything"])
        
+        XCTAssertTrue(callBackWasFired)
+    }
+    
+    func test_routeToQuestion_multipleAnswer_answerCallback_doesNotProgressesToNextQuestion() {
+        var callBackWasFired: Bool = false
+        
+        sut.routeTo(question: Question.multipleAnswer("Q1"), answerCallback: { _ in callBackWasFired = true })
+        factory.answerCallbacks[Question.multipleAnswer("Q1")]!(["anything"])
+       
+        XCTAssertFalse(callBackWasFired)
+    }
+    
+    
+    func test_routeToQuestion_multipleAnswer_answerCallback_configureViewControllerWithSubmitButton() {
+        let viewController = UIViewController()
+        factory.stub(question: Question.multipleAnswer("Q1"), with: viewController)
+        sut.routeTo(question: Question.multipleAnswer("Q1"), answerCallback: { _ in })
+        XCTAssertNotNil(viewController.navigationItem.rightBarButtonItem)
+    }
+    
+    func test_routeToQuestion_multipleAnswerSubmitButton_isDisabledWhenZeroAnswerSelected() {
+        let viewController = UIViewController()
+        factory.stub(question: Question.multipleAnswer("Q1"), with: viewController)
+        sut.routeTo(question: Question.multipleAnswer("Q1"), answerCallback: { _ in })
+        XCTAssertFalse(viewController.navigationItem.rightBarButtonItem!.isEnabled)
+        
+        factory.answerCallbacks[Question.multipleAnswer("Q1")]!(["A1"])
+        XCTAssertTrue(viewController.navigationItem.rightBarButtonItem!.isEnabled)
+        
+        factory.answerCallbacks[Question.multipleAnswer("Q1")]!([])
+        XCTAssertFalse(viewController.navigationItem.rightBarButtonItem!.isEnabled)
+    }
+    
+    
+    func test_routeToQuestion_multipleAnswerSubmitButton_progressesToNextQuestion() {
+        let viewController = UIViewController()
+        factory.stub(question: Question.multipleAnswer("Q1"), with: viewController)
+        
+        var callBackWasFired: Bool = false
+        
+        sut.routeTo(question: Question.multipleAnswer("Q1"), answerCallback: { _ in callBackWasFired = true })
+        
+        factory.answerCallbacks[Question.multipleAnswer("Q1")]!(["A1"])
+        
+        tap(viewController.navigationItem.rightBarButtonItem!)
+        
         XCTAssertTrue(callBackWasFired)
     }
     
@@ -60,7 +106,7 @@ final class NavigationControllerRouterTest: XCTestCase {
     }
     
     
-    
+    // MARK: - Helpers
     
     class NonAnimatedNavigationController: UINavigationController {
         override func pushViewController(_ viewController: UIViewController, animated: Bool) {
@@ -92,5 +138,10 @@ final class NavigationControllerRouterTest: XCTestCase {
             stubbedResults[result] ?? UIViewController()
         }
     }
+    
+    func tap(_ button: UIBarButtonItem) {
+        _ = button.target?.perform(button.action, with: nil)
+    }
 }
+
 

@@ -11,10 +11,13 @@ import QuizEngine
 class iOSViewControllerFactory: ViewControllerFactory {
     
     private let options: [Question<String>: [String]]
+    private let questions: [Question<String>]
     
-    init(options: [Question<String>: [String]]) {
+    init(questions: [Question<String>], options: [Question<String>: [String]]) {
+        self.questions = questions
         self.options = options
     }
+    
     
     
     func questionViewController(for question: Question<String>, answerCallback: @escaping ([String]) -> Void) -> UIViewController {
@@ -28,17 +31,23 @@ class iOSViewControllerFactory: ViewControllerFactory {
         UIViewController()
     }
     
+    
+    
     private func questionViewController(for question: Question<String>, options: [String],  answerCallback: @escaping ([String]) -> Void) -> UIViewController {
         switch question {
-        
         case .singleAnswer(let value):
-            return QuestionViewController(question: value, options: options, selection: answerCallback)
-        
+            return questionViewController(for: question, value: value, options: options, allowMultipleSelection: false, answerCallback: answerCallback)
+           
         case .multipleAnswer(let value):
-            let controller = QuestionViewController(question: value, options: options, selection: answerCallback)
-            controller.loadViewIfNeeded()
-            controller.tableView.allowsMultipleSelection = true
-            return controller
+            return questionViewController(for: question, value: value, options: options, allowMultipleSelection: true ,answerCallback: answerCallback)
         }
     }
+    
+    private func questionViewController(for question: Question<String>, value: String, options: [String],  allowMultipleSelection: Bool, answerCallback: @escaping ([String]) -> Void) -> QuestionViewController {
+        let presenter = QuestionPresenter(questions: questions, question: question)
+        let controller = QuestionViewController(question: value, options: options, allowMultipleSelection: allowMultipleSelection, selection: answerCallback)
+        controller.title = presenter.title
+        return controller
+    }
+    
 }
