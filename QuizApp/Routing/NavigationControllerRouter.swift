@@ -22,9 +22,9 @@ class NavigationControllerRouter: Router {
     func routeTo(question: Question<String>, answerCallback: @escaping ([String]) -> Void) {
         
         switch question {
-        case .singleAnswer(let value):
+        case .singleAnswer:
             show(factory.questionViewController(for: question, answerCallback: answerCallback))
-        case .multipleAnswer(let value):
+        case .multipleAnswer:
             let button = UIBarButtonItem(title: "Submit", style: .done, target: nil, action: nil)
             let buttonController = SubmitButtonController(with: button, and: answerCallback)
             let controller = factory.questionViewController(for: question, answerCallback: { selection in

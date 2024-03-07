@@ -5,7 +5,7 @@
 //  Created by Саша Восколович on 03.03.2024.
 //
 
-import QuizEngine
+@testable import QuizEngine
 
 extension Result: Hashable {
     public static func == (lhs: Result<Question, Answer>, rhs: Result<Question, Answer>) -> Bool {
@@ -13,5 +13,9 @@ extension Result: Hashable {
     }
     public func hash(into hasher: inout Hasher) {
         hasher.combine(1)
+    }
+    
+    static func make(answers: [Question: Answer] = [:], score: Int = 0) -> Result<Question, Answer> {
+         Result(answers: answers, score: score)
     }
 }
