@@ -5,7 +5,7 @@
 //  Created by Саша Восколович on 04.03.2024.
 //
 
-import Foundation
+import QuizEngine
 
 struct QuestionPresenter {
     
