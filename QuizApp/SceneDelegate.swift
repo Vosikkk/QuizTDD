@@ -6,25 +6,47 @@
 //
 
 import UIKit
+import QuizEngine
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var game: Game<Question<String>, [String], NavigationControllerRouter>?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        guard let wscene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(frame: wscene.coordinateSpace.bounds)
-        window?.windowScene = wscene
-        let vc = ResultsViewController(summary: "You Got 1/2 Correct", answers: [
-            PresentableAnswer(question: "Question??QuestionQuestionQuestionQuestionQuestionQuestion", answer: "YeahYeahYeahYeahYeahYeahYeahYeahYeahYeahYeah", wrongAnswer: nil),
-            PresentableAnswer(question: "Another Question??", answer: "Hell Yeah", wrongAnswer: "Hell No")
+        guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        ])
-        vc.loadViewIfNeeded()
-        window?.rootViewController = vc
+        let question1 = Question.singleAnswer("What's Mike's nationality?")
+        let question2 = Question.multipleAnswer("What are Sasha's nationalities?")
+        let questions = [question1, question2]
+        let option1 = "Canadian"
+        let option2 = "American"
+        let option3 = "Ukrainian"
+        let options = [option1, option2, option3]
+        
+      
+        let option4 = "Canadian"
+        let option5 = "American"
+        let option6 = "Ukrainian"
+        let options2 = [option4, option5, option6]
+        
+        let correctAnswers = [question1: [option3], question2: [option5, option6]]
+        
+        let navigationController = UINavigationController()
+        
+       
+        let factory = iOSViewControllerFactory(questions: questions, options: [question1: options, question2: options2], correctAnswers: correctAnswers)
+        
+        let router = NavigationControllerRouter(navigationController, factory: factory)
+        
+        game = startGame(questions: questions, router: router, correctAnswers: correctAnswers)
+       
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        
         
     }
 

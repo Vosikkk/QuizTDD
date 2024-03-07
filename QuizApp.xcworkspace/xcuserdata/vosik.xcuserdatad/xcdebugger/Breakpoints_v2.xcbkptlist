@@ -260,5 +260,85 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "19BF2C27-75F8-4812-8743-0A900A026570"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuizApp/ResultsPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "presentableAnswers"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7ABB996F-1E07-4F83-BE50-6B2B759D44F2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuizApp/ResultsPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "presentableAnswers"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "7ABB996F-1E07-4F83-BE50-6B2B759D44F2 - 7ce3c7176a8ebd22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (QuizEngine.Question&lt;Swift.String&gt;) -&gt; QuizApp.PresentableAnswer in QuizApp.ResultsPresenter.presentableAnswers.getter : Swift.Array&lt;QuizApp.PresentableAnswer&gt;"
+                  moduleName = "QuizApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vosik/TestingStudy/QuizApp/QuizApp/ResultsPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "436">
+               </Location>
+               <Location
+                  uuid = "7ABB996F-1E07-4F83-BE50-6B2B759D44F2 - 7ce3c7176a8ebd22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (QuizEngine.Question&lt;Swift.String&gt;) -&gt; QuizApp.PresentableAnswer in QuizApp.ResultsPresenter.presentableAnswers.getter : Swift.Array&lt;QuizApp.PresentableAnswer&gt;"
+                  moduleName = "QuizApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vosik/TestingStudy/QuizApp/QuizApp/ResultsPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "740">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3CB0FF85-12BE-4C14-A6D2-5F2B2E3EDD63"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuizApp/ResultsPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "presentableAnswers"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

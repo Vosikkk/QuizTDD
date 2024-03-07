@@ -29,7 +29,6 @@ struct ResultsPresenter {
     }
     
     private func presentableAnswer(_ question: Question<String>, _ userAnswers: [String], _ correctAnswer: [String]) -> PresentableAnswer {
-        
         switch question {
         case .singleAnswer(let value), .multipleAnswer(let value):
             return PresentableAnswer(
@@ -41,7 +40,8 @@ struct ResultsPresenter {
     }
     
     private func formattedWrongAnswer(_ userAnswers: [String], _ correctAnswer: [String]) -> String? {
-         correctAnswer == userAnswers ? nil : formattedAnswer(userAnswers)
+        return Set(correctAnswer) == Set(userAnswers) ? nil : formattedAnswer(userAnswers)
+        //  correctAnswer == userAnswers ? nil : formattedAnswer(userAnswers)
     }
     
     private func formattedAnswer( _ answer: [String]) -> String {

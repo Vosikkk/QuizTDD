@@ -6,7 +6,7 @@
 //
 
 import XCTest
-
+import QuizEngine
 @testable import QuizApp
 
 final class QuestionPresenterTest: XCTestCase {
