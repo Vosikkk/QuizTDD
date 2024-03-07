@@ -35,7 +35,9 @@ class iOSViewControllerFactory: ViewControllerFactory {
         
         let presenter = ResultsPresenter(result: result, questions: questions, correctAnswers: correctAnswers)
         
-        return ResultsViewController(summary: presenter.summary, answers: presenter.presentableAnswers)
+        let controller = ResultsViewController(summary: presenter.summary, answers: presenter.presentableAnswers)
+        controller.title = presenter.title
+        return controller
     }
     
     

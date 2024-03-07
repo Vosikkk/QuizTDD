@@ -61,6 +61,11 @@ final class iOSViewControllerFactoryTest: XCTestCase {
         XCTAssertEqual(results.controller.answers.count, results.presenter.presentableAnswers.count)
     }
     
+    func test_resultViewController_createsControllerWithTitle() {
+        let results = makeResultController()
+        XCTAssertEqual(results.controller.title, results.presenter.title)
+    }
+    
     
     
     // MARK: - Helpers
