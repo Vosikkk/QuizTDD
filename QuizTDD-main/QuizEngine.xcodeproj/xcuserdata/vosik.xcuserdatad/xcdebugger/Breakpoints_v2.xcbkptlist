@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "A0475FA0-99E9-43FA-BED7-FE971546EE87"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C66D75CC-6988-4D69-B027-FA5FA9543F04"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuizEngine/Game.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "startGame(questions:router:correctAnswers:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "C66D75CC-6988-4D69-B027-FA5FA9543F04 - 9102791d1d4dec4f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QuizEngine.startGame&lt;&#x3c4;_0_0, &#x3c4;_0_1, &#x3c4;_0_2 where &#x3c4;_0_0 == &#x3c4;_0_2.Question, &#x3c4;_0_1 == &#x3c4;_0_2.Answer, &#x3c4;_0_2: QuizEngine.Router&gt;(questions: Swift.Array&lt;&#x3c4;_0_0&gt;, router: &#x3c4;_0_2, correctAnswers: Swift.Dictionary&lt;&#x3c4;_0_0, &#x3c4;_0_1&gt;) -&gt; QuizEngine.Game&lt;&#x3c4;_0_0, &#x3c4;_0_1, &#x3c4;_0_2&gt;"
+                  moduleName = "QuizEngine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vosik/TestingStudy/QuizEngine/QuizEngine/Game.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "172">
+               </Location>
+               <Location
+                  uuid = "C66D75CC-6988-4D69-B027-FA5FA9543F04 - a46704517c2d372b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Dictionary&lt;&#x3c4;_0_0, &#x3c4;_0_1&gt;) -&gt; Swift.Int in QuizEngine.startGame&lt;&#x3c4;_0_0, &#x3c4;_0_1, &#x3c4;_0_2 where &#x3c4;_0_0 == &#x3c4;_0_2.Question, &#x3c4;_0_1 == &#x3c4;_0_2.Answer, &#x3c4;_0_2: QuizEngine.Router&gt;(questions: Swift.Array&lt;&#x3c4;_0_0&gt;, router: &#x3c4;_0_2, correctAnswers: Swift.Dictionary&lt;&#x3c4;_0_0, &#x3c4;_0_1&gt;) -&gt; QuizEngine.Game&lt;&#x3c4;_0_0, &#x3c4;_0_1, &#x3c4;_0_2&gt;"
+                  moduleName = "QuizEngine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vosik/TestingStudy/QuizEngine/QuizEngine/Game.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "539B5213-FFA2-4FF6-85B5-B81EF6E92E4F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuizEngine/Game.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "startGame(questions:router:correctAnswers:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BAAC37AF-AFF5-4161-B049-45DAE2FB12B7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuizEngine/Game.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "startGame(questions:router:correctAnswers:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F9A0A2F8-5C05-4D40-94C3-40DB783B849D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuizEngineTests/FlowTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "FlowTests"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "F9A0A2F8-5C05-4D40-94C3-40DB783B849D - 9a6acf13cb6b0462"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QuizEngineTests.FlowTests.router.getter : QuizEngineTests.RouterSpy"
+                  moduleName = "QuizEngineTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vosik/TestingStudy/QuizEngine/QuizEngineTests/FlowTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "F9A0A2F8-5C05-4D40-94C3-40DB783B849D - f54767614b3dfd27"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QuizEngineTests.FlowTests.init(invocation: Swift.Optional&lt;__C.NSInvocation&gt;) -&gt; QuizEngineTests.FlowTests"
+                  moduleName = "QuizEngineTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vosik/TestingStudy/QuizEngine/QuizEngineTests/FlowTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "F9A0A2F8-5C05-4D40-94C3-40DB783B849D - 38671d08cb4ca6e1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QuizEngineTests.FlowTests.init(selector: ObjectiveC.Selector) -&gt; QuizEngineTests.FlowTests"
+                  moduleName = "QuizEngineTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vosik/TestingStudy/QuizEngine/QuizEngineTests/FlowTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "F9A0A2F8-5C05-4D40-94C3-40DB783B849D - 23697418b1428706"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QuizEngineTests.FlowTests.init() -&gt; QuizEngineTests.FlowTests"
+                  moduleName = "QuizEngineTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vosik/TestingStudy/QuizEngine/QuizEngineTests/FlowTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
