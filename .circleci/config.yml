@@ -1,34 +1,18 @@
 
 version: 2.1
 jobs:
-  test:
-    docker:
-      - image: cimg/base:stable
+  build-test:
+    macos:
+      xcode: 14.2.0
     steps:
       - checkout
       - run:
           name: Run tests
           command: xcodebuild -workspace QuizApp.xcworkspace -sceme CI -destination 'platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro' test
-  build:
-    macos:
-      xcode: "15.2.0"
-    steps:
-      - checkout
       - run:
           name: Build 
           command: xcodebuild -workspace QuizApp.xcworkspace -sceme QuizApp -destination 'platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro' build
-      - store_artifacts:
-          path: example.txt
-  deploy:
-    docker:
-      - image: cimg/base:stable
-    steps:
-     
-      - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'
 workflows:
-  workflow:
+  check_my_app:
     jobs:
-      - test
-      - build
+      - build-test
