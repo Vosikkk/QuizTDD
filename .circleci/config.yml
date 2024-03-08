@@ -13,7 +13,6 @@ jobs:
           name: Build 
           command: xcodebuild -workspace QuizApp.xcworkspace -scheme QuizApp -destination 'platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro' 
 workflows:
- version: 2.1
   check_my_app:
     jobs:
       - build-test
