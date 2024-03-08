@@ -1,7 +1,7 @@
 
 version: 2.1
 jobs:
-  build-test:
+  test:
     macos:
       xcode: 15.2.0
     steps:
@@ -9,10 +9,7 @@ jobs:
       - run:
           name: Run tests
           command: xcodebuild -workspace QuizApp.xcworkspace -scheme QuizApp -destination 'platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro' 
-      - run:
-          name: Build 
-          command: xcodebuild -workspace QuizApp.xcworkspace -scheme QuizApp -destination 'platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro' 
 workflows:
   check_my_app:
     jobs:
-      - build-test
+      - test
