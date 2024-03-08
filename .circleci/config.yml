@@ -2,15 +2,13 @@
 version: 2.1
 jobs:
   test:
-   macos:
-      xcode: "15.2.0"
     docker:
       - image: cimg/base:stable
     steps:
       - checkout
       - run:
           name: Run tests
-          command: xcodebuild -workspace QuizApp.xcworkspace -sceme CI -destination 'platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro' build
+          command: xcodebuild -workspace QuizApp.xcworkspace -sceme CI -destination 'platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro' test
   build:
     macos:
       xcode: "15.2.0"
@@ -33,3 +31,4 @@ workflows:
    version: 2.1
     jobs:
       - test
+      - build
