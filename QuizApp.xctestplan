@@ -17,18 +17,10 @@
   },
   "testTargets" : [
     {
-      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:QuizApp.xcodeproj",
         "identifier" : "38767FAC2B8AB4CD00F19F0F",
         "name" : "QuizAppTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:..\/QuizTDD-main\/QuizEngine.xcodeproj",
-        "identifier" : "389949E72B93C5E5000D630B",
-        "name" : "QuizEngine_iOSTests"
       }
     }
   ],
