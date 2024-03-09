@@ -7,6 +7,11 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install dependencies
+          command: |
+            xcodebuild -workspace QuizApp.xcworkspace -scheme QuizApp -destination 'platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro' clean build
+      - checkout
+      - run:
           name: Run tests
           command: xcodebuild -workspace QuizApp.xcworkspace -scheme QuizApp -destination 'platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro' 
 workflows:
