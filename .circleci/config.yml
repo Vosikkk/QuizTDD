@@ -5,11 +5,16 @@ jobs:
     macos:
       xcode: 15.2.0
     steps:
-      - checkout
+      - run:
+    name: Check directory and dependencies
+    command: |
+      pwd
+      ls -al
+       - checkout
       - run:
           name: Install dependencies
           command: |
-            xcodebuild -workspace QuizApp.xcworkspace -scheme QuizApp -destination 'platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro' -project QuizEngine.xcodeproj clean build
+            xcodebuild -workspace QuizApp.xcworkspace -scheme QuizApp -destination 'platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro' clean build
       - checkout
       - run:
           name: Run tests
