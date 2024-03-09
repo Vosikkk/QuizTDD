@@ -1,19 +1,15 @@
 {
   "configurations" : [
     {
-      "id" : "DED459CC-BA28-46BF-963C-CC90766E5BE9",
-      "name" : "Test Scheme Action",
+      "id" : "635AA29D-DB1D-4636-8B80-4548A79A690D",
+      "name" : "Configuration 1",
       "options" : {
 
       }
     }
   ],
   "defaultOptions" : {
-    "targetForVariableExpansion" : {
-      "containerPath" : "container:QuizApp.xcodeproj",
-      "identifier" : "38767F962B8AB4CB00F19F0F",
-      "name" : "QuizApp"
-    }
+
   },
   "testTargets" : [
     {
@@ -21,6 +17,13 @@
         "containerPath" : "container:QuizApp.xcodeproj",
         "identifier" : "38767FAC2B8AB4CD00F19F0F",
         "name" : "QuizAppTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:QuizTDD-main\/QuizEngine.xcodeproj",
+        "identifier" : "389949E72B93C5E5000D630B",
+        "name" : "QuizEngine_iOSTests"
       }
     }
   ],
