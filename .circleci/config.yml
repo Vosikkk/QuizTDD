@@ -5,11 +5,6 @@ jobs:
     macos:
       xcode: 15.2.0
     steps:
-      - run:
-    name: Check directory and dependencies
-    command: |
-      pwd
-      ls -al
        - checkout
       - run:
           name: Install dependencies
