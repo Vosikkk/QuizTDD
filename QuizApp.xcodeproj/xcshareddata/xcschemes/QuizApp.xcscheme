@@ -33,19 +33,6 @@
             default = "YES">
          </TestPlanReference>
       </TestPlans>
-      <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "38767FAC2B8AB4CD00F19F0F"
-               BuildableName = "QuizAppTests.xctest"
-               BlueprintName = "QuizAppTests"
-               ReferencedContainer = "container:QuizApp.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
