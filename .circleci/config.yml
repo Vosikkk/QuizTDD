@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Run tests
+          name: Run test
           command: xcodebuild -workspace QuizApp.xcworkspace -scheme QuizApp -destination 'platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro' 
 workflows:
   check_my_app:
