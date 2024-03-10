@@ -6,11 +6,13 @@ on:
 jobs:
   build:
    name: Build and test
-   runs-on: macos-latest
+   runs-on: macos-13
    steps:
    - uses: actions/checkout@v4
    - name: Setup Xcode version
-     run: sudo xcode-select -switch /Applications/Xcode15_2_0.app
+     uses: maxim-lobanov/setup-xcode@v1.6.0
+     with: 
+      xcode-version: '15.2.0'
    - name: Show current version of Xcode
      run: xcodebuild -version
    - name: Run tests
