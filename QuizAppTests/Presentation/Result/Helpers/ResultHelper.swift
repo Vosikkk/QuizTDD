@@ -7,7 +7,7 @@
 
 @testable import QuizEngine
 
-//
+////
 extension Result {
     static func make(answers: [Question: Answer] = [:], score: Int = 0) -> Result<Question, Answer> {
          Result(answers: answers, score: score)
