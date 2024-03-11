@@ -115,7 +115,7 @@ final class FlowTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
         
-        XCTAssertNil(weakSUT, "Memory leak detected. Weak reference to the SUT (Flow<DelegateSpy>) instance is not Nil")
+        XCTAssertNil(weakSUT, "Memory leak detected. Weak reference to the SUT instance is not Nil")
     }
     
     private func makeSUT(questions: [String],
@@ -126,19 +126,28 @@ final class FlowTests: XCTestCase {
         return sut
     }
     
-    private class DelegateSpy: Router {
+    private class DelegateSpy: Router, QuizDelegate {
+        
+        func handle(question: String, answerCallback: @escaping (String) -> Void) {
+            routedQuestions.append(question)
+            self.answerCallback = answerCallback
+        }
+        
+        func handle(result: QuizEngine.Result<String, String>) {
+            routedResult = result
+        }
+        
 
         var routedQuestions: [String] = []
         var answerCallback: (String) -> Void = { _ in }
         var routedResult: Result<String, String>? = nil
         
         func routeTo(question: String, answerCallback: @escaping (String) -> Void) {
-            routedQuestions.append(question)
-            self.answerCallback = answerCallback
+           handle(question: question, answerCallback: answerCallback)
         }
         
         func routeTo(result: Result<String, String>) {
-            routedResult = result
+            handle(result: result)
         }
     }
 }
