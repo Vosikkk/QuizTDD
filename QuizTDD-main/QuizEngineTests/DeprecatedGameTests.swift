@@ -12,8 +12,8 @@ import XCTest
 @available(*, deprecated)
 final class DeprecatedGameTests: XCTestCase {
     
-    var game: Game<String, String, RouterSpy>!
-    let router = RouterSpy()
+    private var game: Game<String, String, RouterSpy>!
+    private let router = RouterSpy()
     
     override func setUp() {
         super.setUp()
@@ -46,5 +46,19 @@ final class DeprecatedGameTests: XCTestCase {
         router.answerCallback("A2")
         
         XCTAssertEqual(router.routedResult!.score, 2)
+    }
+    
+    private class RouterSpy: Router {
+        
+        var answerCallback: (String) -> Void = { _ in }
+        var routedResult: Result<String, String>? = nil
+        
+        func routeTo(question: String, answerCallback: @escaping (String) -> Void) {
+            self.answerCallback = answerCallback
+        }
+        
+        func routeTo(result: Result<String, String>) {
+            routedResult = result
+        }
     }
 }
