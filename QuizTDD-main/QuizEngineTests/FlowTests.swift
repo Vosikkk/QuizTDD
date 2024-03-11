@@ -109,10 +109,21 @@ final class FlowTests: XCTestCase {
     
     // MARK: - Helper
     
+    private weak var weakSUT: Flow<RouterSpy>?
+    
+    
+    override func tearDown() {
+        super.tearDown()
+        
+        XCTAssertNil(weakSUT, "Memory leak detected. Weak reference to the SUT (Flow<RouterSpy>) instance is not Nil")
+    }
+    
     private func makeSUT(questions: [String],
                  scoring: @escaping ([String: String]) -> Int = { _ in 0 }) ->
-    Flow<String, String, RouterSpy> {
-        Flow(questions: questions, router: router, scoring: scoring)
+    Flow<RouterSpy> {
+        let sut = Flow(questions: questions, router: router, scoring: scoring)
+        weakSUT = sut
+        return sut
     }
     
     private class RouterSpy: Router {
