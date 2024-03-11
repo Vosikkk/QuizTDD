@@ -7,7 +7,7 @@
 
 @testable import QuizEngine
 
-////
+
 extension Result {
     static func make(answers: [Question: Answer] = [:], score: Int = 0) -> Result<Question, Answer> {
          Result(answers: answers, score: score)
@@ -20,8 +20,9 @@ extension Result: Equatable where Answer: Equatable {
     }
 }
 
-extension Result: Hashable where Answer: Equatable {
+extension Result: Hashable where Answer: Hashable {
     public func hash(into hasher: inout Hasher) {
-        hasher.combine(1)
+        hasher.combine(answers)
+        hasher.combine(score)
     }
 }
