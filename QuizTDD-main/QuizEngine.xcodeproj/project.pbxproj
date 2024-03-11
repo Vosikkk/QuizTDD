@@ -16,14 +16,12 @@
 		38767F1C2B8A209500F19F0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38767F1A2B8A209500F19F0F /* Main.storyboard */; };
 		38767F402B8A20D900F19F0F /* FlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38767F3F2B8A20D900F19F0F /* FlowTests.swift */; };
 		38767F422B8A229000F19F0F /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38767F412B8A229000F19F0F /* Flow.swift */; };
-		38767F442B8A9E6A00F19F0F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38767F432B8A9E6A00F19F0F /* Helpers.swift */; };
 		389949E92B93C5E5000D630B /* QuizEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 389949E12B93C5E4000D630B /* QuizEngine.framework */; };
 		389949F62B93C6DA000D630B /* FlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38767F3F2B8A20D900F19F0F /* FlowTests.swift */; };
 		389949F72B93C6FA000D630B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F90F2B8CC86400706FF0 /* Router.swift */; };
 		389949F82B93C6FA000D630B /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38767F412B8A229000F19F0F /* Flow.swift */; };
 		389949F92B93C6FA000D630B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F90D2B8CC83A00706FF0 /* Result.swift */; };
 		389949FA2B93C6FA000D630B /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F9132B8CCA3400706FF0 /* Game.swift */; };
-		389949FB2B93C7CD000D630B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38767F432B8A9E6A00F19F0F /* Helpers.swift */; };
 		389949FD2B93C815000D630B /* DeprecatedGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CBECD62B8CE4AA00B2ED4E /* DeprecatedGameTests.swift */; };
 		38CBECD72B8CE4AA00B2ED4E /* DeprecatedGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CBECD62B8CE4AA00B2ED4E /* DeprecatedGameTests.swift */; };
 		38FAA4492B993AA40068F322 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FAA4482B993AA40068F322 /* Question.swift */; };
@@ -60,7 +58,6 @@
 		38767F222B8A209600F19F0F /* QuizEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizEngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38767F3F2B8A20D900F19F0F /* FlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTests.swift; sourceTree = "<group>"; };
 		38767F412B8A229000F19F0F /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
-		38767F432B8A9E6A00F19F0F /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		389949E12B93C5E4000D630B /* QuizEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuizEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		389949E82B93C5E5000D630B /* QuizEngine_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizEngine_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38CBECD62B8CE4AA00B2ED4E /* DeprecatedGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeprecatedGameTests.swift; sourceTree = "<group>"; };
@@ -141,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				38767F3F2B8A20D900F19F0F /* FlowTests.swift */,
-				38767F432B8A9E6A00F19F0F /* Helpers.swift */,
 				38CBECD62B8CE4AA00B2ED4E /* DeprecatedGameTests.swift */,
 			);
 			path = QuizEngineTests;
@@ -331,7 +327,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				38767F402B8A20D900F19F0F /* FlowTests.swift in Sources */,
-				38767F442B8A9E6A00F19F0F /* Helpers.swift in Sources */,
 				38CBECD72B8CE4AA00B2ED4E /* DeprecatedGameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,7 +349,6 @@
 			files = (
 				389949F62B93C6DA000D630B /* FlowTests.swift in Sources */,
 				389949FD2B93C815000D630B /* DeprecatedGameTests.swift in Sources */,
-				389949FB2B93C7CD000D630B /* Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
