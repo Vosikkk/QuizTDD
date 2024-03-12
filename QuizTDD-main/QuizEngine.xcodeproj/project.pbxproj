@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38296DEA2BA1082A0080913E /* QuizDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38296DE92BA1082A0080913E /* QuizDelegate.swift */; };
 		3846F90E2B8CC83A00706FF0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F90D2B8CC83A00706FF0 /* Result.swift */; };
 		3846F9102B8CC86500706FF0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F90F2B8CC86400706FF0 /* Router.swift */; };
 		3846F9142B8CCA3400706FF0 /* DeprecatedGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F9132B8CCA3400706FF0 /* DeprecatedGame.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38296DE92BA1082A0080913E /* QuizDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDelegate.swift; sourceTree = "<group>"; };
 		3846F90D2B8CC83A00706FF0 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		3846F90F2B8CC86400706FF0 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		3846F9132B8CCA3400706FF0 /* DeprecatedGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeprecatedGame.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				3846F90F2B8CC86400706FF0 /* Router.swift */,
 				38FAA4482B993AA40068F322 /* Question.swift */,
 				3846F9132B8CCA3400706FF0 /* DeprecatedGame.swift */,
+				38296DE92BA1082A0080913E /* QuizDelegate.swift */,
 			);
 			path = QuizEngine;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38767F422B8A229000F19F0F /* Flow.swift in Sources */,
+				38296DEA2BA1082A0080913E /* QuizDelegate.swift in Sources */,
 				3846F9142B8CCA3400706FF0 /* DeprecatedGame.swift in Sources */,
 				38767F172B8A209400F19F0F /* ViewController.swift in Sources */,
 				3846F90E2B8CC83A00706FF0 /* Result.swift in Sources */,
