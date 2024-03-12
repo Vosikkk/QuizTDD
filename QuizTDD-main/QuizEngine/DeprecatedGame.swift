@@ -49,3 +49,13 @@ private func scoring<Question, Answer: Equatable>(_ answers: [Question: Answer],
          score + (correctAnswers[tuple.key] == tuple.value ? 1 : 0)
     }
 }
+
+@available(*, deprecated)
+public protocol Router {
+    
+    associatedtype Question: Hashable
+    associatedtype Answer
+    
+    func routeTo(question: Question, answerCallback: @escaping (Answer) -> Void)
+    func routeTo(result: Result<Question, Answer>)
+}
