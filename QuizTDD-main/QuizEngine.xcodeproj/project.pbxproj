@@ -28,6 +28,7 @@
 		38C084FD2BA65F78002CD76F /* DelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C084FB2BA65F78002CD76F /* DelegateSpy.swift */; };
 		38C084FF2BA661EF002CD76F /* ScoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C084FE2BA661EF002CD76F /* ScoreTest.swift */; };
 		38C085002BA661EF002CD76F /* ScoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C084FE2BA661EF002CD76F /* ScoreTest.swift */; };
+		38C085012BA6655C002CD76F /* QuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38296DEB2BA10AB10080913E /* QuizTests.swift */; };
 		38CBECD72B8CE4AA00B2ED4E /* DeprecatedGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CBECD62B8CE4AA00B2ED4E /* DeprecatedGameTests.swift */; };
 		38FAA4492B993AA40068F322 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FAA4482B993AA40068F322 /* Question.swift */; };
 		38FAA44A2B993AA40068F322 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FAA4482B993AA40068F322 /* Question.swift */; };
@@ -362,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38C085012BA6655C002CD76F /* QuizTests.swift in Sources */,
 				38C085002BA661EF002CD76F /* ScoreTest.swift in Sources */,
 				38C084FA2BA65E40002CD76F /* Assertions.swift in Sources */,
 				389949F62B93C6DA000D630B /* FlowTests.swift in Sources */,
