@@ -10,7 +10,6 @@
 		38296DEA2BA1082A0080913E /* QuizDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38296DE92BA1082A0080913E /* QuizDelegate.swift */; };
 		38296DEC2BA10AB10080913E /* QuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38296DEB2BA10AB10080913E /* QuizTests.swift */; };
 		38296DEE2BA1107F0080913E /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38296DED2BA1107F0080913E /* Quiz.swift */; };
-		3846F90E2B8CC83A00706FF0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F90D2B8CC83A00706FF0 /* Result.swift */; };
 		3846F9142B8CCA3400706FF0 /* DeprecatedGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F9132B8CCA3400706FF0 /* DeprecatedGame.swift */; };
 		38767F152B8A209400F19F0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38767F142B8A209400F19F0F /* AppDelegate.swift */; };
 		38767F172B8A209400F19F0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38767F162B8A209400F19F0F /* ViewController.swift */; };
@@ -21,7 +20,6 @@
 		389949E92B93C5E5000D630B /* QuizEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 389949E12B93C5E4000D630B /* QuizEngine.framework */; };
 		389949F62B93C6DA000D630B /* FlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38767F3F2B8A20D900F19F0F /* FlowTests.swift */; };
 		389949F82B93C6FA000D630B /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38767F412B8A229000F19F0F /* Flow.swift */; };
-		389949F92B93C6FA000D630B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F90D2B8CC83A00706FF0 /* Result.swift */; };
 		389949FA2B93C6FA000D630B /* DeprecatedGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3846F9132B8CCA3400706FF0 /* DeprecatedGame.swift */; };
 		389949FD2B93C815000D630B /* DeprecatedGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CBECD62B8CE4AA00B2ED4E /* DeprecatedGameTests.swift */; };
 		38CBECD72B8CE4AA00B2ED4E /* DeprecatedGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CBECD62B8CE4AA00B2ED4E /* DeprecatedGameTests.swift */; };
@@ -50,7 +48,6 @@
 		38296DE92BA1082A0080913E /* QuizDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDelegate.swift; sourceTree = "<group>"; };
 		38296DEB2BA10AB10080913E /* QuizTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTests.swift; sourceTree = "<group>"; };
 		38296DED2BA1107F0080913E /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
-		3846F90D2B8CC83A00706FF0 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		3846F9132B8CCA3400706FF0 /* DeprecatedGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeprecatedGame.swift; sourceTree = "<group>"; };
 		38767F112B8A209400F19F0F /* QuizEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38767F142B8A209400F19F0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -129,7 +126,6 @@
 				38767F1A2B8A209500F19F0F /* Main.storyboard */,
 				38767F1D2B8A209500F19F0F /* QuizEngine.entitlements */,
 				38767F412B8A229000F19F0F /* Flow.swift */,
-				3846F90D2B8CC83A00706FF0 /* Result.swift */,
 				38FAA4482B993AA40068F322 /* Question.swift */,
 				3846F9132B8CCA3400706FF0 /* DeprecatedGame.swift */,
 				38296DE92BA1082A0080913E /* QuizDelegate.swift */,
@@ -321,7 +317,6 @@
 				38296DEA2BA1082A0080913E /* QuizDelegate.swift in Sources */,
 				3846F9142B8CCA3400706FF0 /* DeprecatedGame.swift in Sources */,
 				38767F172B8A209400F19F0F /* ViewController.swift in Sources */,
-				3846F90E2B8CC83A00706FF0 /* Result.swift in Sources */,
 				38FAA4492B993AA40068F322 /* Question.swift in Sources */,
 				38296DEE2BA1107F0080913E /* Quiz.swift in Sources */,
 				38767F152B8A209400F19F0F /* AppDelegate.swift in Sources */,
@@ -343,7 +338,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				38FAA44A2B993AA40068F322 /* Question.swift in Sources */,
-				389949F92B93C6FA000D630B /* Result.swift in Sources */,
 				389949F82B93C6FA000D630B /* Flow.swift in Sources */,
 				389949FA2B93C6FA000D630B /* DeprecatedGame.swift in Sources */,
 			);
