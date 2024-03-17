@@ -96,3 +96,16 @@ final class iOSViewControllerFactoryTest: XCTestCase {
         return (controller, presenter)
     }
 }
+
+private extension ResultsPresenter {
+    
+   convenience init(result: Result<Question<String>, [String]>, questions: [Question<String>], correctAnswers: [Question<String>: [String]]) {
+       self.init(
+        userAnswers: questions.map { question in
+           (question, result.answers[question]!) },
+        correctAnswers: questions.map { question in
+           (question, correctAnswers[question]!) },
+        scorer: { _ , _  in result.score }
+       )
+    }
+}
