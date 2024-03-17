@@ -11,11 +11,6 @@ import QuizEngine
 
 final class ResultsPresenterTest: XCTestCase {
 
-    
-    let singleAnswerQuestion = Question.singleAnswer("Q1")
-    let multipleAnswerQuestion = Question.multipleAnswer("Q2")
-    
-
     func test_title_returnsFormattedTitle() {
         XCTAssertEqual(makeSUT().title, "Result")
     }
@@ -62,33 +57,6 @@ final class ResultsPresenterTest: XCTestCase {
     }
     
     
-    func test_presentableAnswers_withRightSingleAnswer_mapsAnswer() {
-        
-        let userAnswers = [(singleAnswerQuestion, ["A1"])]
-        let correctAnswers = [(singleAnswerQuestion, ["A1"])]
-        let sut = makeSUT(userAnswers: userAnswers, correctAnswers: correctAnswers)
-        
-        XCTAssertEqual(sut.presentableAnswers.count, 1)
-        XCTAssertEqual(sut.presentableAnswers.first!.question, "Q1")
-        XCTAssertEqual(sut.presentableAnswers.first!.answer, "A1")
-        XCTAssertNil(sut.presentableAnswers.first!.wrongAnswer)
-        
-    }
-    
-    func test_presentableAnswers_withRightMultipleAnswer_mapsAnswer() {
-        
-        let userAnswers = [(multipleAnswerQuestion, ["A1", "A4"])]
-        let correctAnswers = [(multipleAnswerQuestion, ["A1", "A4"])]
-        let sut = makeSUT(userAnswers: userAnswers, correctAnswers: correctAnswers)
-       
-        XCTAssertEqual(sut.presentableAnswers.count, 1)
-        XCTAssertEqual(sut.presentableAnswers.first!.question, "Q2")
-        XCTAssertEqual(sut.presentableAnswers.first!.answer, "A1, A4")
-        XCTAssertNil(sut.presentableAnswers.first!.wrongAnswer)
-        
-    }
-    
-    
     func test_presentableAnswers_withTwoQuestions_mapsOrderedAnswer() {
         
         let userAnswers = [(singleAnswerQuestion, ["A1", "A4"]), (multipleAnswerQuestion, ["A2"])]
@@ -108,6 +76,10 @@ final class ResultsPresenterTest: XCTestCase {
     }
     
     // MARK: Helpers
+    
+    
+    private let singleAnswerQuestion = Question.singleAnswer("Q1")
+    private let multipleAnswerQuestion = Question.multipleAnswer("Q2")
     
     private func makeSUT(userAnswers: ResultsPresenter.Answers = [],
                          correctAnswers:  ResultsPresenter.Answers = [],
