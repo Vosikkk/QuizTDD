@@ -104,7 +104,7 @@ final class NavigationControllerRouterTest: XCTestCase {
     }
     
     
-    func test_routeToResult_showsResultController() {
+    func test_didCompleteQuiz_showsResultsController() {
         let viewController = UIViewController()
         let secondViewController = UIViewController()
     
