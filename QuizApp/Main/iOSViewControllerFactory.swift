@@ -18,15 +18,6 @@ class iOSViewControllerFactory: ViewControllerFactory {
     private let correctAnswers: () -> Answers
     
     
-    init(questions: [Question<String>], options: [Question<String>: [String]], correctAnswers: [Question<String>: [String]]) {
-        self.questions = questions
-        self.options = options
-        self.correctAnswers = { questions.map { question in
-            (question, correctAnswers[question]!) }
-        }
-    }
-    
-    
     init(options: [Question<String>: [String]], correctAnswers: Answers) {
         self.questions = correctAnswers.map { $0.question }
         self.options = options
