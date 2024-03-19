@@ -70,18 +70,17 @@ final class iOSViewControllerFactoryTest: XCTestCase {
     
     // MARK: - Helpers
     
-    func makeSUT(options: [Question<String>: [String]] = [:], correctAnswers: [Question<String>: [String]] = [:]) -> iOSViewControllerFactory {
-        iOSViewControllerFactory(questions: [singleAnswerQuestion, multipleAnswerQuestion], options: options, correctAnswers: correctAnswers)
-    }
-    
     func makeSUT(options: [Question<String>: [String]] = [:], correctAnswers: [(Question<String>, [String])] = []) -> iOSViewControllerFactory {
         iOSViewControllerFactory(options: options, correctAnswers: correctAnswers)
     }
     
     
     func makeQuestionController(question: Question<String> = Question.singleAnswer("")) -> QuestionViewController {
-        
-        return makeSUT(options: [question: options], correctAnswers: [:]).questionViewController(for: question, answerCallback: { _ in }) as! QuestionViewController
+        let sut = makeSUT(
+            options: [question: options],
+            correctAnswers: [(singleAnswerQuestion, []), (multipleAnswerQuestion, [])]
+        )
+        return sut.questionViewController(for: question, answerCallback: { _ in }) as! QuestionViewController
     }
 
     
