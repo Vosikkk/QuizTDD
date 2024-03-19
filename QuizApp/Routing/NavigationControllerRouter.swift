@@ -35,6 +35,9 @@ class NavigationControllerRouter: Router {
         }
     }
     
+    func didCompleteQuiz(withAnswers answers: [(question: Question<String>, answers: [String])]) {
+        show(factory.resultsViewController(for: answers))
+    }
     
     func routeTo(question: Question<String>, answerCallback: @escaping ([String]) -> Void) {
         answer(for: question, completion: answerCallback)
