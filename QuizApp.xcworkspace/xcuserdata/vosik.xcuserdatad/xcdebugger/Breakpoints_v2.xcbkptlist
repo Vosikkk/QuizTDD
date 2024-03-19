@@ -191,8 +191,7 @@
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"
-                  endingLineNumber = "30"
-                  offsetFromSymbolStart = "556">
+                  endingLineNumber = "30">
                </Location>
                <Location
                   uuid = "CA4483F8-DB71-4AC1-9725-F42630D66B39 - c1ab1fb294639b4e"
@@ -206,8 +205,7 @@
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"
-                  endingLineNumber = "30"
-                  offsetFromSymbolStart = "52">
+                  endingLineNumber = "30">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -303,8 +301,7 @@
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "436">
+                  endingLineNumber = "24">
                </Location>
                <Location
                   uuid = "7ABB996F-1E07-4F83-BE50-6B2B759D44F2 - 7ce3c7176a8ebd22"
@@ -318,8 +315,7 @@
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "740">
+                  endingLineNumber = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -338,6 +334,22 @@
             endingLineNumber = "30"
             landmarkName = "presentableAnswers"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EFEB371C-5CFF-4CE6-BC54-D3DA4CC32F58"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuizAppTests/Routing/NavigationControllerRouterTest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "test_routeToResult_showsResultController()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
