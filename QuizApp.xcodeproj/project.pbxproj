@@ -32,7 +32,6 @@
 		389AE6782B94BFA700532A04 /* iOSViewControllerFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389AE6772B94BFA700532A04 /* iOSViewControllerFactoryTest.swift */; };
 		389AE67A2B94C0CE00532A04 /* iOSViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389AE6792B94C0CE00532A04 /* iOSViewControllerFactory.swift */; };
 		389AE67C2B95201800532A04 /* ResultsPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389AE67B2B95201800532A04 /* ResultsPresenterTest.swift */; };
-		389AE67E2B95216C00532A04 /* ResultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389AE67D2B95216C00532A04 /* ResultHelper.swift */; };
 		389AE6802B9522EF00532A04 /* ResultsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389AE67F2B9522EF00532A04 /* ResultsPresenter.swift */; };
 		38C085062BA670D1002CD76F /* ScoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C085052BA670D1002CD76F /* ScoreTest.swift */; };
 		38C085092BA67173002CD76F /* BasicScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C085082BA67173002CD76F /* BasicScore.swift */; };
@@ -92,7 +91,6 @@
 		389AE6772B94BFA700532A04 /* iOSViewControllerFactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSViewControllerFactoryTest.swift; sourceTree = "<group>"; };
 		389AE6792B94C0CE00532A04 /* iOSViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSViewControllerFactory.swift; sourceTree = "<group>"; };
 		389AE67B2B95201800532A04 /* ResultsPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPresenterTest.swift; sourceTree = "<group>"; };
-		389AE67D2B95216C00532A04 /* ResultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultHelper.swift; sourceTree = "<group>"; };
 		389AE67F2B9522EF00532A04 /* ResultsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPresenter.swift; sourceTree = "<group>"; };
 		38C085052BA670D1002CD76F /* ScoreTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreTest.swift; sourceTree = "<group>"; };
 		38C085082BA67173002CD76F /* BasicScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicScore.swift; sourceTree = "<group>"; };
@@ -353,17 +351,8 @@
 			isa = PBXGroup;
 			children = (
 				389AE67B2B95201800532A04 /* ResultsPresenterTest.swift */,
-				38D7EAA12B9A70D50084F0BE /* Helpers */,
 			);
 			path = Result;
-			sourceTree = "<group>";
-		};
-		38D7EAA12B9A70D50084F0BE /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				389AE67D2B95216C00532A04 /* ResultHelper.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		38D7EAA22B9A70FE0084F0BE /* Routing */ = {
@@ -506,7 +495,6 @@
 				38767FCB2B8AB5B500F19F0F /* QuestionViewControllerTest.swift in Sources */,
 				38C085062BA670D1002CD76F /* ScoreTest.swift in Sources */,
 				38FD9D242B967007003669A4 /* QuestionPresenterTest.swift in Sources */,
-				389AE67E2B95216C00532A04 /* ResultHelper.swift in Sources */,
 				387556372B8BEA8200C34BE4 /* TableViewHelpers.swift in Sources */,
 				387556312B8BDE3E00C34BE4 /* ResultsViewControllerTest.swift in Sources */,
 				389AE6782B94BFA700532A04 /* iOSViewControllerFactoryTest.swift in Sources */,
