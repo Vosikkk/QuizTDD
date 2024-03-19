@@ -11,20 +11,10 @@ import QuizEngine
 
 final class NavigationControllerRouterTest: XCTestCase {
     
-    let navigationController: UINavigationController = NonAnimatedNavigationController()
-    let factory: ViewControllerFactoryStub = ViewControllerFactoryStub()
-    
-    lazy var sut: NavigationControllerRouter = NavigationControllerRouter(navigationController, factory: factory)
-    
-    let multipleQuestionAnswer = Question.multipleAnswer("Q1")
-    let singleQuestionAnswer = Question.singleAnswer("Q1")
-    let singleQuestionAnswer2 = Question.singleAnswer("Q2")
     
     func test_answerToQuestion_showsQuestionController() {
         let viewController = UIViewController()
         let secondViewController = UIViewController()
-        
-        
         
         factory.stub(question: singleQuestionAnswer, with: viewController)
         factory.stub(question: singleQuestionAnswer2, with: secondViewController)
@@ -125,18 +115,29 @@ final class NavigationControllerRouterTest: XCTestCase {
     
     // MARK: - Helpers
     
-    func tap(_ button: UIBarButtonItem) {
+    
+    private let navigationController: UINavigationController = NonAnimatedNavigationController()
+    private let factory: ViewControllerFactoryStub = ViewControllerFactoryStub()
+    
+    private lazy var sut: NavigationControllerRouter = NavigationControllerRouter(navigationController, factory: factory)
+    
+    private let multipleQuestionAnswer = Question.multipleAnswer("Q1")
+    private let singleQuestionAnswer = Question.singleAnswer("Q1")
+    private let singleQuestionAnswer2 = Question.singleAnswer("Q2")
+    
+    
+    private func tap(_ button: UIBarButtonItem) {
         _ = button.target?.perform(button.action, with: nil)
     }
     
-    class NonAnimatedNavigationController: UINavigationController {
+    private class NonAnimatedNavigationController: UINavigationController {
         override func pushViewController(_ viewController: UIViewController, animated: Bool) {
             super.pushViewController(viewController, animated: false)
         }
     }
     
     
-    class ViewControllerFactoryStub: ViewControllerFactory {
+    private class ViewControllerFactoryStub: ViewControllerFactory {
       
         private var stubbedQuestions: [Question<String>: UIViewController] = [:]
         private var stubbedResults: [[Question<String>]: UIViewController] = [:]

@@ -346,9 +346,9 @@
             filePath = "QuizAppTests/Routing/NavigationControllerRouterTest.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "test_routeToResult_showsResultController()"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "test_didCompleteQuiz_showsResultsController()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
