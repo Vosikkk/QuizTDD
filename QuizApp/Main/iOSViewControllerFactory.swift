@@ -35,7 +35,7 @@ final class iOSViewControllerFactory: ViewControllerFactory {
     }
     
     
-    func resultViewController(for userAnswers: Answers) -> UIViewController {
+    func resultsViewController(for userAnswers: Answers) -> UIViewController {
         let presenter = ResultsPresenter(userAnswers: userAnswers, correctAnswers: correctAnswers, scorer: BasicScore.score)
         let controller = ResultsViewController(summary: presenter.summary, answers: presenter.presentableAnswers)
         controller.title = presenter.title
