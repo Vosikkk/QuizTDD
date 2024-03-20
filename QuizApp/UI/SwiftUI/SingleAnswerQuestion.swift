@@ -16,18 +16,7 @@ struct SingleAnswerQuestion: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            VStack(alignment: .leading, spacing: 16) {
-                Text(title)
-                    .foregroundStyle(.blue)
-                    .font(.headline)
-                    .fontWeight(.medium)
-                    .padding(.top)
-                
-                Text(question)
-                    .font(.largeTitle)
-                    .fontWeight(.medium)
-            }
-            .padding()
+            HeaderView(title: title, question: question)
            
             ForEach(options, id: \.self) { option in
                 Button {
@@ -63,3 +52,5 @@ struct SingleAnswerQuestion: View {
         ],
         selection: { _ in })
 }
+
+

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3844C09C2BAB936700B2503D /* SingleAnswerQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3844C09B2BAB936700B2503D /* SingleAnswerQuestion.swift */; };
+		3844C09E2BAB9C3700B2503D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3844C09D2BAB9C3700B2503D /* HeaderView.swift */; };
 		387556312B8BDE3E00C34BE4 /* ResultsViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387556302B8BDE3E00C34BE4 /* ResultsViewControllerTest.swift */; };
 		387556332B8BDF3700C34BE4 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387556322B8BDF3700C34BE4 /* ResultsViewController.swift */; };
 		387556352B8BDFFF00C34BE4 /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 387556342B8BDFFF00C34BE4 /* ResultsViewController.xib */; };
@@ -66,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		3844C09B2BAB936700B2503D /* SingleAnswerQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAnswerQuestion.swift; sourceTree = "<group>"; };
+		3844C09D2BAB9C3700B2503D /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		387556302B8BDE3E00C34BE4 /* ResultsViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewControllerTest.swift; sourceTree = "<group>"; };
 		387556322B8BDF3700C34BE4 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		387556342B8BDFFF00C34BE4 /* ResultsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsViewController.xib; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				3844C09B2BAB936700B2503D /* SingleAnswerQuestion.swift */,
+				3844C09D2BAB9C3700B2503D /* HeaderView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				3844C09C2BAB936700B2503D /* SingleAnswerQuestion.swift in Sources */,
 				387556332B8BDF3700C34BE4 /* ResultsViewController.swift in Sources */,
 				389AE6762B94BF1600532A04 /* ViewControllerFactory.swift in Sources */,
+				3844C09E2BAB9C3700B2503D /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
