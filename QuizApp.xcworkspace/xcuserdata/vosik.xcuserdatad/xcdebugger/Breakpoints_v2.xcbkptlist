@@ -178,36 +178,6 @@
             endingLineNumber = "30"
             landmarkName = "routeTo(question:answerCallback:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CA4483F8-DB71-4AC1-9725-F42630D66B39 - 25ad2e5f2f073064"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuizApp.NavigationControllerRouter.routeTo(question: QuizApp.Question&lt;Swift.String&gt;, answerCallback: (Swift.Array&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "QuizApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vosik/TestingStudy/QuizApp/QuizApp/NavigationControllerRouter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30">
-               </Location>
-               <Location
-                  uuid = "CA4483F8-DB71-4AC1-9725-F42630D66B39 - c1ab1fb294639b4e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Array&lt;Swift.String&gt;) -&gt; () in QuizApp.NavigationControllerRouter.routeTo(question: QuizApp.Question&lt;Swift.String&gt;, answerCallback: (Swift.Array&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "QuizApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vosik/TestingStudy/QuizApp/QuizApp/NavigationControllerRouter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -288,36 +258,6 @@
             endingLineNumber = "27"
             landmarkName = "presentableAnswers"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "7ABB996F-1E07-4F83-BE50-6B2B759D44F2 - 7ce3c7176a8ebd22"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (QuizEngine.Question&lt;Swift.String&gt;) -&gt; QuizApp.PresentableAnswer in QuizApp.ResultsPresenter.presentableAnswers.getter : Swift.Array&lt;QuizApp.PresentableAnswer&gt;"
-                  moduleName = "QuizApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vosik/TestingStudy/QuizApp/QuizApp/ResultsPresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24">
-               </Location>
-               <Location
-                  uuid = "7ABB996F-1E07-4F83-BE50-6B2B759D44F2 - 7ce3c7176a8ebd22"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (QuizEngine.Question&lt;Swift.String&gt;) -&gt; QuizApp.PresentableAnswer in QuizApp.ResultsPresenter.presentableAnswers.getter : Swift.Array&lt;QuizApp.PresentableAnswer&gt;"
-                  moduleName = "QuizApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vosik/TestingStudy/QuizApp/QuizApp/ResultsPresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
