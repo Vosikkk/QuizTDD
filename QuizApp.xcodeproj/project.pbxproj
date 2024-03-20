@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3844C09C2BAB936700B2503D /* SingleAnswerQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3844C09B2BAB936700B2503D /* SingleAnswerQuestion.swift */; };
 		387556312B8BDE3E00C34BE4 /* ResultsViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387556302B8BDE3E00C34BE4 /* ResultsViewControllerTest.swift */; };
 		387556332B8BDF3700C34BE4 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387556322B8BDF3700C34BE4 /* ResultsViewController.swift */; };
 		387556352B8BDFFF00C34BE4 /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 387556342B8BDFFF00C34BE4 /* ResultsViewController.xib */; };
@@ -64,6 +65,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3844C09B2BAB936700B2503D /* SingleAnswerQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAnswerQuestion.swift; sourceTree = "<group>"; };
 		387556302B8BDE3E00C34BE4 /* ResultsViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewControllerTest.swift; sourceTree = "<group>"; };
 		387556322B8BDF3700C34BE4 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		387556342B8BDFFF00C34BE4 /* ResultsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsViewController.xib; sourceTree = "<group>"; };
@@ -126,6 +128,14 @@
 				38D7EA932B9A6F0A0084F0BE /* Helpers */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		3844C09A2BAB933A00B2503D /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				3844C09B2BAB936700B2503D /* SingleAnswerQuestion.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		38767F8E2B8AB4CB00F19F0F = {
@@ -210,6 +220,7 @@
 		38D7EA8F2B9A6DD40084F0BE /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				3844C09A2BAB933A00B2503D /* SwiftUI */,
 				3844C0992BAB92B700B2503D /* UIKit */,
 			);
 			path = UI;
@@ -489,6 +500,7 @@
 				389AE67A2B94C0CE00532A04 /* iOSViewControllerFactory.swift in Sources */,
 				38994A062B93CCC0000D630B /* NavigationControllerRouter.swift in Sources */,
 				38767FCD2B8AB6AA00F19F0F /* QuestionViewController.swift in Sources */,
+				3844C09C2BAB936700B2503D /* SingleAnswerQuestion.swift in Sources */,
 				387556332B8BDF3700C34BE4 /* ResultsViewController.swift in Sources */,
 				389AE6762B94BF1600532A04 /* ViewControllerFactory.swift in Sources */,
 			);
