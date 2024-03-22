@@ -37,7 +37,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationController = UINavigationController()
         
        
-        let factory = iOSUIKitViewControllerFactory(options: options, correctAnswers: correctAnswers)
+        let factory = iOSSwiftUIViewControllerFactory(options: options, correctAnswers: correctAnswers)
         
         let router = NavigationControllerRouter(navigationController, factory: factory)
         
