@@ -5,10 +5,11 @@
 //  Created by Саша Восколович on 22.03.2024.
 //
 
+import SwiftUI
 import XCTest
 import QuizEngine
 @testable import QuizApp
-import SwiftUI
+
 
 final class iOSSwiftUIViewControllerFactoryTest: XCTestCase {
 
@@ -42,25 +43,24 @@ final class iOSSwiftUIViewControllerFactoryTest: XCTestCase {
     }
     
     
-    func test_questionViewController_multipleAnswer_createsViewControllerWithTitle() {
+    func test_questionViewController_multipleAnswer_createsViewControllerWithTitle() throws {
         
         let presenter = QuestionPresenter(questions: [singleAnswerQuestion, multipleAnswerQuestion], question: multipleAnswerQuestion)
-        XCTAssertEqual(makeQuestionController(question: multipleAnswerQuestion).title, presenter.title)
+        let view = try XCTUnwrap(makeMultipleAnswerQuestion())
+        XCTAssertEqual(view.title, presenter.title)
     }
     
-    func test_questionViewController_multipleAnswer_createsViewControllerWithQuestion() {
-        XCTAssertEqual(makeQuestionController(question: multipleAnswerQuestion).question, "Q1")
+    func test_questionViewController_multipleAnswer_createsViewControllerWithQuestion() throws {
+        let view = try XCTUnwrap(makeMultipleAnswerQuestion())
+        XCTAssertEqual(view.question, "Q2")
     }
     
-    func test_questionViewController_multipleAnswer_createsViewControllerWithOptions() {
-        XCTAssertEqual(makeQuestionController(question: multipleAnswerQuestion).options, options[multipleAnswerQuestion])
+    func test_questionViewController_multipleAnswer_createsViewControllerWithOptions() throws {
+        let view = try XCTUnwrap(makeMultipleAnswerQuestion())
+
+        XCTAssertEqual(view.store.options.map(\.text), options[multipleAnswerQuestion])
     }
-    
-    func test_questionViewController_multipleAnswer_createsViewControllerWithSingleSelection() {
-        XCTAssertTrue(makeQuestionController(question: multipleAnswerQuestion).allowMultipleSelection)
-    }
-    
-    
+   
     func test_resultViewController_createsControllerWithSummary() {
         let results = makeResultController()
         XCTAssertEqual(results.controller.summary, results.presenter.summary)
@@ -82,7 +82,7 @@ final class iOSSwiftUIViewControllerFactoryTest: XCTestCase {
     
     
     private var singleAnswerQuestion: Question<String> { .singleAnswer("Q1") }
-    private var multipleAnswerQuestion: Question<String> { .multipleAnswer("Q1") }
+    private var multipleAnswerQuestion: Question<String> { .multipleAnswer("Q2") }
     
     private var questions: [Question<String>] {
         [singleAnswerQuestion, multipleAnswerQuestion]
@@ -107,9 +107,10 @@ final class iOSSwiftUIViewControllerFactoryTest: XCTestCase {
     }
 
     
-    func makeQuestionController(question: Question<String> = Question.singleAnswer(""), answerCallback: @escaping ([String]) -> Void = { _ in }) -> QuestionViewController {
+    func makeMultipleAnswerQuestion(answerCallback: @escaping ([String]) -> Void = { _ in }) -> MultipleAnswerQuestion? {
         let sut = makeSUT()
-        return sut.questionViewController(for: question, answerCallback: answerCallback) as! QuestionViewController
+        let controller = sut.questionViewController(for: multipleAnswerQuestion, answerCallback: answerCallback) as? UIHostingController<MultipleAnswerQuestion>
+        return controller?.rootView
     }
 
     

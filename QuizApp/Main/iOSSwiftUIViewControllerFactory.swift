@@ -53,9 +53,9 @@ final class iOSSwiftUIViewControllerFactory: ViewControllerFactory {
                                         options: [String],
                                         answerCallback: @escaping ([String]) -> Void
     ) -> UIViewController {
+        let presenter = QuestionPresenter(questions: questions, question: question)
         switch question {
         case .singleAnswer(let value):
-            let presenter = QuestionPresenter(questions: questions, question: question)
             return UIHostingController(
                 rootView: SingleAnswerQuestion(
                     title: presenter.title,
@@ -65,13 +65,11 @@ final class iOSSwiftUIViewControllerFactory: ViewControllerFactory {
             )
            
         case .multipleAnswer(let value):
-            return questionViewController(
-                for: question,
-                value: value,
-                options: options,
-                allowMultipleSelection: true,
-                answerCallback: answerCallback
-            )
+            return UIHostingController(
+                rootView: MultipleAnswerQuestion(
+                    title: presenter.title,
+                    question: value,
+                    store: .init(options: options, handler: answerCallback)))
         }
     }
     
