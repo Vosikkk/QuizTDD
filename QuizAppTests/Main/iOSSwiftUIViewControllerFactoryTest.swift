@@ -1,33 +1,46 @@
 //
-//  iOSViewControllerFactoryTest.swift
+//  iOSSwiftUIViewControllerFactoryTest.swift
 //  QuizAppTests
 //
-//  Created by Саша Восколович on 03.03.2024.
+//  Created by Саша Восколович on 22.03.2024.
 //
 
 import XCTest
 import QuizEngine
 @testable import QuizApp
+import SwiftUI
 
-final class iOSUIKitViewControllerFactoryTest: XCTestCase {
+final class iOSSwiftUIViewControllerFactoryTest: XCTestCase {
 
-    
-    func test_questionViewController_singleAnswer_createsViewControllerWithTitle() {
+    func test_questionViewController_singleAnswer_createsViewControllerWithTitle() throws {
         let presenter = QuestionPresenter(questions: [singleAnswerQuestion, multipleAnswerQuestion], question: singleAnswerQuestion)
-        XCTAssertEqual(makeQuestionController(question: singleAnswerQuestion).title, presenter.title)
+        let view = try XCTUnwrap(makeSingleAnswerQuestion())
+        XCTAssertEqual(view.title, presenter.title)
     }
     
-    func test_questionViewController_singleAnswer_createsViewControllerWithQuestion() {
-        XCTAssertEqual(makeQuestionController(question: singleAnswerQuestion).question, "Q1")
+    func test_questionViewController_singleAnswer_createsViewControllerWithQuestion() throws {
+        let view = try XCTUnwrap(makeSingleAnswerQuestion())
+        XCTAssertEqual(view.question, "Q1")
     }
     
-    func test_questionViewController_singleAnswer_createsViewControllerWithOptions() {
-        XCTAssertEqual(makeQuestionController(question: singleAnswerQuestion).options, options[singleAnswerQuestion])
+    func test_questionViewController_singleAnswer_createsViewControllerWithOptions() throws {
+        let view = try XCTUnwrap(makeSingleAnswerQuestion())
+        XCTAssertEqual(view.options, options[singleAnswerQuestion])
     }
     
-    func test_questionViewController_singleAnswer_createsViewControllerWithSingleSelection() {
-        XCTAssertFalse(makeQuestionController(question: singleAnswerQuestion).allowMultipleSelection)
+    
+    func test_questionViewController_singleAnswer_createsViewControllerWithAnswerCallback() throws {
+        var answers: [[String]] = []
+        let view = try XCTUnwrap(makeSingleAnswerQuestion(answerCallback: { answers.append($0) }))
+        XCTAssertEqual(answers, [])
+        
+        view.selection(view.options[0])
+        XCTAssertEqual(answers, [[view.options[0]]])
+        
+        view.selection(view.options[1])
+        XCTAssertEqual(answers, [[view.options[0]], [view.options[1]]])
     }
+    
     
     func test_questionViewController_multipleAnswer_createsViewControllerWithTitle() {
         
@@ -67,6 +80,7 @@ final class iOSUIKitViewControllerFactoryTest: XCTestCase {
     
     // MARK: - Helpers
     
+    
     private var singleAnswerQuestion: Question<String> { .singleAnswer("Q1") }
     private var multipleAnswerQuestion: Question<String> { .multipleAnswer("Q1") }
     
@@ -82,11 +96,16 @@ final class iOSUIKitViewControllerFactoryTest: XCTestCase {
         [(singleAnswerQuestion, ["A1"]), (multipleAnswerQuestion, ["A4, A5"])]
     }
     
-    
-    func makeSUT() -> iOSUIKitViewControllerFactory {
-        iOSUIKitViewControllerFactory(options: options, correctAnswers: correctAnswers)
+    func makeSUT() -> iOSSwiftUIViewControllerFactory {
+        iOSSwiftUIViewControllerFactory(options: options, correctAnswers: correctAnswers)
     }
     
+    func makeSingleAnswerQuestion(answerCallback: @escaping ([String]) -> Void = { _ in }) -> SingleAnswerQuestion? {
+        let sut = makeSUT()
+        let controller = sut.questionViewController(for: singleAnswerQuestion, answerCallback: answerCallback) as? UIHostingController<SingleAnswerQuestion>
+        return controller?.rootView
+    }
+
     
     func makeQuestionController(question: Question<String> = Question.singleAnswer(""), answerCallback: @escaping ([String]) -> Void = { _ in }) -> QuestionViewController {
         let sut = makeSUT()
@@ -95,7 +114,7 @@ final class iOSUIKitViewControllerFactoryTest: XCTestCase {
 
     
     func makeResultController() -> (controller: ResultsViewController, presenter: ResultsPresenter) {
-        let userAnswers = [(singleAnswerQuestion, ["A1"]), (multipleAnswerQuestion, ["A1, A2"])]
+        let userAnswers = [(singleAnswerQuestion, ["A1"]), (multipleAnswerQuestion, ["A4, A5"])]
        
         let sut = makeSUT()
 
