@@ -35,6 +35,7 @@
 		389AE67A2B94C0CE00532A04 /* iOSViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389AE6792B94C0CE00532A04 /* iOSViewControllerFactory.swift */; };
 		389AE67C2B95201800532A04 /* ResultsPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389AE67B2B95201800532A04 /* ResultsPresenterTest.swift */; };
 		389AE6802B9522EF00532A04 /* ResultsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389AE67F2B9522EF00532A04 /* ResultsPresenter.swift */; };
+		38ABBFD42BAD9E7C005CDB58 /* SingleTextSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ABBFD32BAD9E7C005CDB58 /* SingleTextSelectionCell.swift */; };
 		38C085062BA670D1002CD76F /* ScoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C085052BA670D1002CD76F /* ScoreTest.swift */; };
 		38C085092BA67173002CD76F /* BasicScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C085082BA67173002CD76F /* BasicScore.swift */; };
 		38FD9D242B967007003669A4 /* QuestionPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FD9D232B967007003669A4 /* QuestionPresenterTest.swift */; };
@@ -96,6 +97,7 @@
 		389AE6792B94C0CE00532A04 /* iOSViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSViewControllerFactory.swift; sourceTree = "<group>"; };
 		389AE67B2B95201800532A04 /* ResultsPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPresenterTest.swift; sourceTree = "<group>"; };
 		389AE67F2B9522EF00532A04 /* ResultsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPresenter.swift; sourceTree = "<group>"; };
+		38ABBFD32BAD9E7C005CDB58 /* SingleTextSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTextSelectionCell.swift; sourceTree = "<group>"; };
 		38C085052BA670D1002CD76F /* ScoreTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreTest.swift; sourceTree = "<group>"; };
 		38C085082BA67173002CD76F /* BasicScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicScore.swift; sourceTree = "<group>"; };
 		38FD9D232B967007003669A4 /* QuestionPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPresenterTest.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				3844C09B2BAB936700B2503D /* SingleAnswerQuestion.swift */,
 				3844C09D2BAB9C3700B2503D /* HeaderView.swift */,
+				38ABBFD32BAD9E7C005CDB58 /* SingleTextSelectionCell.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				387556332B8BDF3700C34BE4 /* ResultsViewController.swift in Sources */,
 				389AE6762B94BF1600532A04 /* ViewControllerFactory.swift in Sources */,
 				3844C09E2BAB9C3700B2503D /* HeaderView.swift in Sources */,
+				38ABBFD42BAD9E7C005CDB58 /* SingleTextSelectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

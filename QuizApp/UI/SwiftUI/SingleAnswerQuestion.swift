@@ -19,21 +19,7 @@ struct SingleAnswerQuestion: View {
             HeaderView(title: title, question: question)
            
             ForEach(options, id: \.self) { option in
-                Button {
-                    
-                } label: {
-                    HStack {
-                        Circle()
-                            .stroke(Color.secondary, lineWidth: 2.5)
-                            .frame(width: 40, height: 40)
-                        
-                        Text(option)
-                            .font(.title)
-                            .foregroundStyle(.secondary)
-                        Spacer()
-                    }
-                    .padding()
-                }
+                SingleTextSelectionCell(text: option, selection: {})
             }
             Spacer()
         }
@@ -52,5 +38,3 @@ struct SingleAnswerQuestion: View {
         ],
         selection: { _ in })
 }
-
-
