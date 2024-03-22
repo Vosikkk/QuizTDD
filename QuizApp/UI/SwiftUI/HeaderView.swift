@@ -29,5 +29,5 @@ struct HeaderView: View {
 }
 
 #Preview {
-    HeaderView(title: "HZ", question: "rasha is terrorist state? Rhetorical question")
+    HeaderView(title: "HZ", question: "is the rasha terrorist state? Rhetorical question")
 }

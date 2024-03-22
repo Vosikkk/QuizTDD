@@ -19,7 +19,9 @@ struct SingleAnswerQuestion: View {
             HeaderView(title: title, question: question)
            
             ForEach(options, id: \.self) { option in
-                SingleTextSelectionCell(text: option, selection: {})
+                SingleTextSelectionCell(text: option, selection: {
+                    selection(option)
+                })
             }
             Spacer()
         }
@@ -27,14 +29,40 @@ struct SingleAnswerQuestion: View {
 }
 
 #Preview {
-    SingleAnswerQuestion(
-        title: "1 of 2",
-        question: "What's Mike nationality?",
-        options: [
-            "Ukrainian",
-            "American",
-            "Greek",
-            "Brazil"
-        ],
-        selection: { _ in })
+//    Group {
+//        SingleAnswerQuestion(
+//            title: "1 of 2",
+//            question: "What's Mike nationality?",
+//            options: [
+//                "Ukrainian",
+//                "American",
+//                "Greek",
+//                "Brazil"
+//            ],
+//            selection: { _ in })
+        
+        SingleAnswerQuestionTestView()
+  // }
+}
+
+struct SingleAnswerQuestionTestView: View {
+    
+    @State var selection: String = "none"
+    
+    var body: some View {
+        VStack {
+            SingleAnswerQuestion(
+                title: "1 of 2",
+                question: "What's Mike nationality?",
+                options: [
+                    "Ukrainian",
+                    "American",
+                    "Greek",
+                    "Brazil"
+                ],
+            selection: { selection = $0 })
+            
+            Text("Last selection " + selection)
+        }
+    }
 }
