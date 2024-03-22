@@ -29,20 +29,7 @@ struct SingleAnswerQuestion: View {
 }
 
 #Preview {
-//    Group {
-//        SingleAnswerQuestion(
-//            title: "1 of 2",
-//            question: "What's Mike nationality?",
-//            options: [
-//                "Ukrainian",
-//                "American",
-//                "Greek",
-//                "Brazil"
-//            ],
-//            selection: { _ in })
-        
-        SingleAnswerQuestionTestView()
-  // }
+    SingleAnswerQuestionTestView()
 }
 
 struct SingleAnswerQuestionTestView: View {

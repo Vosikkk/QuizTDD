@@ -30,7 +30,7 @@ struct SingleTextSelectionCell: View {
     }
     
     private struct Constants {
-        static let leadingInset: CGFloat = 10
+        static let leadingInset: CGFloat = 15
         static let topInset: CGFloat = 20
         
         struct Size {
