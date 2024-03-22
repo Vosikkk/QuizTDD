@@ -40,6 +40,8 @@
 		38ABBFD82BADAA24005CDB58 /* iOSSwiftUIViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ABBFD72BADAA24005CDB58 /* iOSSwiftUIViewControllerFactory.swift */; };
 		38ABBFDC2BADC8EC005CDB58 /* MultipleSelectionStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ABBFDB2BADC8EC005CDB58 /* MultipleSelectionStoreTests.swift */; };
 		38ABBFDE2BAE3526005CDB58 /* MultipleSelectionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ABBFDD2BAE3526005CDB58 /* MultipleSelectionStore.swift */; };
+		38ABBFE02BAE35E4005CDB58 /* MultipleQuestionAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ABBFDF2BAE35E4005CDB58 /* MultipleQuestionAnswer.swift */; };
+		38ABBFE22BAE36F3005CDB58 /* MultipleTextSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ABBFE12BAE36F3005CDB58 /* MultipleTextSelectionCell.swift */; };
 		38C085062BA670D1002CD76F /* ScoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C085052BA670D1002CD76F /* ScoreTest.swift */; };
 		38C085092BA67173002CD76F /* BasicScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C085082BA67173002CD76F /* BasicScore.swift */; };
 		38FD9D242B967007003669A4 /* QuestionPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FD9D232B967007003669A4 /* QuestionPresenterTest.swift */; };
@@ -106,6 +108,8 @@
 		38ABBFD72BADAA24005CDB58 /* iOSSwiftUIViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSSwiftUIViewControllerFactory.swift; sourceTree = "<group>"; };
 		38ABBFDB2BADC8EC005CDB58 /* MultipleSelectionStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionStoreTests.swift; sourceTree = "<group>"; };
 		38ABBFDD2BAE3526005CDB58 /* MultipleSelectionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionStore.swift; sourceTree = "<group>"; };
+		38ABBFDF2BAE35E4005CDB58 /* MultipleQuestionAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleQuestionAnswer.swift; sourceTree = "<group>"; };
+		38ABBFE12BAE36F3005CDB58 /* MultipleTextSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleTextSelectionCell.swift; sourceTree = "<group>"; };
 		38C085052BA670D1002CD76F /* ScoreTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreTest.swift; sourceTree = "<group>"; };
 		38C085082BA67173002CD76F /* BasicScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicScore.swift; sourceTree = "<group>"; };
 		38FD9D232B967007003669A4 /* QuestionPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPresenterTest.swift; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 				3844C09D2BAB9C3700B2503D /* HeaderView.swift */,
 				38ABBFD32BAD9E7C005CDB58 /* SingleTextSelectionCell.swift */,
 				38ABBFDD2BAE3526005CDB58 /* MultipleSelectionStore.swift */,
+				38ABBFDF2BAE35E4005CDB58 /* MultipleQuestionAnswer.swift */,
+				38ABBFE12BAE36F3005CDB58 /* MultipleTextSelectionCell.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -525,6 +531,8 @@
 				389AE6802B9522EF00532A04 /* ResultsPresenter.swift in Sources */,
 				38C085092BA67173002CD76F /* BasicScore.swift in Sources */,
 				38767F9B2B8AB4CB00F19F0F /* AppDelegate.swift in Sources */,
+				38ABBFE22BAE36F3005CDB58 /* MultipleTextSelectionCell.swift in Sources */,
+				38ABBFE02BAE35E4005CDB58 /* MultipleQuestionAnswer.swift in Sources */,
 				38767F9D2B8AB4CB00F19F0F /* SceneDelegate.swift in Sources */,
 				387556412B8BFD4500C34BE4 /* CorrectAnswerCell.swift in Sources */,
 				3875563D2B8BFCE000C34BE4 /* UITableView+Extension.swift in Sources */,
