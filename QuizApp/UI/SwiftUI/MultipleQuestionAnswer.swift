@@ -16,28 +16,17 @@ struct MultipleAnswerQuestion: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            HeaderView(title: title, question: question)
+            HeaderView(title: title, subtitle: question)
            
             ForEach(store.options.indices, id: \.self) { index in
                 MultipleTextSelectionCell(option: $store.options[index])
             }
             Spacer()
-            submitButton
-                .padding()
+            RoundedButton(title: "Submit", isEnabled: store.canSubmit) {
+                
+            }
+            .padding()
         }
-    }
-    
-    private var submitButton: some View {
-         Button {
-            store.submit()
-         } label: {
-             Text("Submit")
-                 .foregroundStyle(.white)
-                 .hAlign(.center)
-                 .fillView(.blue)
-         }
-        .buttonStyle(PlainButtonStyle())
-        .disabled(!store.canSubmit)
     }
 }
 
@@ -67,23 +56,3 @@ struct MultipleAnswerQuestionTestView: View {
     }
 }
 
-extension View {
-    func hAlign(_ alignment: Alignment) -> some View {
-        self
-            .frame(maxWidth: .infinity, alignment: alignment)
-    }
-    
-    func vAlign(_ alignment: Alignment) -> some View {
-        self
-            .frame(maxHeight: .infinity, alignment: alignment)
-    }
-    
-    func fillView(_ color: Color) -> some View {
-           self
-               .padding(.vertical, 10)
-               .background {
-                   RoundedRectangle(cornerRadius: 15, style: .continuous)
-                       .fill(color)
-               }
-       }
-}

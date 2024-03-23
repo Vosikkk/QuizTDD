@@ -44,6 +44,8 @@
 		38ABBFE22BAE36F3005CDB58 /* MultipleTextSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ABBFE12BAE36F3005CDB58 /* MultipleTextSelectionCell.swift */; };
 		38C085062BA670D1002CD76F /* ScoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C085052BA670D1002CD76F /* ScoreTest.swift */; };
 		38C085092BA67173002CD76F /* BasicScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C085082BA67173002CD76F /* BasicScore.swift */; };
+		38D7A0942BAF805F00BD55CB /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D7A0932BAF805F00BD55CB /* RoundedButton.swift */; };
+		38D7A0962BAF816D00BD55CB /* Extenstions+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D7A0952BAF816D00BD55CB /* Extenstions+View.swift */; };
 		38FD9D242B967007003669A4 /* QuestionPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FD9D232B967007003669A4 /* QuestionPresenterTest.swift */; };
 		38FD9D262B967119003669A4 /* QuestionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FD9D252B967119003669A4 /* QuestionPresenter.swift */; };
 /* End PBXBuildFile section */
@@ -112,6 +114,8 @@
 		38ABBFE12BAE36F3005CDB58 /* MultipleTextSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleTextSelectionCell.swift; sourceTree = "<group>"; };
 		38C085052BA670D1002CD76F /* ScoreTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreTest.swift; sourceTree = "<group>"; };
 		38C085082BA67173002CD76F /* BasicScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicScore.swift; sourceTree = "<group>"; };
+		38D7A0932BAF805F00BD55CB /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		38D7A0952BAF816D00BD55CB /* Extenstions+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extenstions+View.swift"; sourceTree = "<group>"; };
 		38FD9D232B967007003669A4 /* QuestionPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPresenterTest.swift; sourceTree = "<group>"; };
 		38FD9D252B967119003669A4 /* QuestionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,8 +153,8 @@
 		3844C09A2BAB933A00B2503D /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				38D7A0922BAF803100BD55CB /* Helpers */,
 				3844C09B2BAB936700B2503D /* SingleAnswerQuestion.swift */,
-				3844C09D2BAB9C3700B2503D /* HeaderView.swift */,
 				38ABBFD32BAD9E7C005CDB58 /* SingleTextSelectionCell.swift */,
 				38ABBFDD2BAE3526005CDB58 /* MultipleSelectionStore.swift */,
 				38ABBFDF2BAE35E4005CDB58 /* MultipleQuestionAnswer.swift */,
@@ -242,6 +246,16 @@
 				38C085082BA67173002CD76F /* BasicScore.swift */,
 			);
 			path = Scoring;
+			sourceTree = "<group>";
+		};
+		38D7A0922BAF803100BD55CB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3844C09D2BAB9C3700B2503D /* HeaderView.swift */,
+				38D7A0932BAF805F00BD55CB /* RoundedButton.swift */,
+				38D7A0952BAF816D00BD55CB /* Extenstions+View.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		38D7EA8E2B9A6D7D0084F0BE /* Main */ = {
@@ -545,7 +559,9 @@
 				38767FCD2B8AB6AA00F19F0F /* QuestionViewController.swift in Sources */,
 				3844C09C2BAB936700B2503D /* SingleAnswerQuestion.swift in Sources */,
 				387556332B8BDF3700C34BE4 /* ResultsViewController.swift in Sources */,
+				38D7A0942BAF805F00BD55CB /* RoundedButton.swift in Sources */,
 				389AE6762B94BF1600532A04 /* ViewControllerFactory.swift in Sources */,
+				38D7A0962BAF816D00BD55CB /* Extenstions+View.swift in Sources */,
 				38ABBFD82BADAA24005CDB58 /* iOSSwiftUIViewControllerFactory.swift in Sources */,
 				3844C09E2BAB9C3700B2503D /* HeaderView.swift in Sources */,
 				38ABBFD42BAD9E7C005CDB58 /* SingleTextSelectionCell.swift in Sources */,

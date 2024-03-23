@@ -10,7 +10,7 @@ import SwiftUI
 struct HeaderView: View {
     
     let title: String
-    let question: String
+    let subtitle: String
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -20,7 +20,7 @@ struct HeaderView: View {
                 .fontWeight(.medium)
                 .padding(.top)
             
-            Text(question)
+            Text(subtitle)
                 .font(.largeTitle)
                 .fontWeight(.medium)
         }
@@ -29,5 +29,5 @@ struct HeaderView: View {
 }
 
 #Preview {
-    HeaderView(title: "HZ", question: "is the rasha terrorist state? Rhetorical question")
+    HeaderView(title: "Test", subtitle: "is the rasha terrorist state? Rhetorical question")
 }
