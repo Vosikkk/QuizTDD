@@ -24,6 +24,7 @@ struct HeaderView: View {
                 .font(.largeTitle)
                 .fontWeight(.medium)
         }
+        .hAlign(.leading)
         .padding()
     }
 }

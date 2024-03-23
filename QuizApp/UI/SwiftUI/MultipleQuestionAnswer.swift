@@ -22,8 +22,9 @@ struct MultipleAnswerQuestion: View {
                 MultipleTextSelectionCell(option: $store.options[index])
             }
             Spacer()
+            
             RoundedButton(title: "Submit", isEnabled: store.canSubmit) {
-                
+               store.submit()
             }
             .padding()
         }
