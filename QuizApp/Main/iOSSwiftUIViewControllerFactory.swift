@@ -21,10 +21,13 @@ final class iOSSwiftUIViewControllerFactory: ViewControllerFactory {
         correctAnswers.map { $0.question }
     }
     
+    private let playAgain: () -> Void
     
-    init(options: [Question<String>: [String]], correctAnswers: Answers) {
+    
+    init(options: [Question<String>: [String]], correctAnswers: Answers, playAgain: @escaping () -> Void = {}) {
         self.options = options
         self.correctAnswers = correctAnswers
+        self.playAgain = playAgain
     }
     
     
@@ -53,7 +56,7 @@ final class iOSSwiftUIViewControllerFactory: ViewControllerFactory {
                 title: presenter.title,
                 summary: presenter.summary,
                 answers: presenter.presentableAnswers,
-                playAgain: { }
+                playAgain: playAgain
             )
         )
     }

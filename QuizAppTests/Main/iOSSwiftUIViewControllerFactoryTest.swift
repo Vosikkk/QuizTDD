@@ -77,6 +77,20 @@ final class iOSSwiftUIViewControllerFactoryTest: XCTestCase {
     }
     
     
+    func test_resultViewController_createsControllerWithPlayAgainAction() throws {
+        var playAgainCount: Int = 0
+        
+        let (view, _) =  try XCTUnwrap(makeResults(playAgain: { playAgainCount += 1 }))
+        XCTAssertEqual(playAgainCount, 0)
+        
+        view.playAgain()
+        XCTAssertEqual(playAgainCount, 1)
+        
+        view.playAgain()
+        XCTAssertEqual(playAgainCount, 2)
+    }
+    
+    
     
     // MARK: - Helpers
     
@@ -96,26 +110,26 @@ final class iOSSwiftUIViewControllerFactoryTest: XCTestCase {
         [(singleAnswerQuestion, ["A1"]), (multipleAnswerQuestion, ["A4, A5"])]
     }
     
-    func makeSUT() -> iOSSwiftUIViewControllerFactory {
-        iOSSwiftUIViewControllerFactory(options: options, correctAnswers: correctAnswers)
+    private func makeSUT(playAgain: @escaping () -> Void = {}) -> iOSSwiftUIViewControllerFactory {
+        iOSSwiftUIViewControllerFactory(options: options, correctAnswers: correctAnswers, playAgain: playAgain)
     }
     
-    func makeSingleAnswerQuestion(answerCallback: @escaping ([String]) -> Void = { _ in }) -> SingleAnswerQuestion? {
+    private func makeSingleAnswerQuestion(answerCallback: @escaping ([String]) -> Void = { _ in }) -> SingleAnswerQuestion? {
         let sut = makeSUT()
         let controller = sut.questionViewController(for: singleAnswerQuestion, answerCallback: answerCallback) as? UIHostingController<SingleAnswerQuestion>
         return controller?.rootView
     }
 
     
-    func makeMultipleAnswerQuestion(answerCallback: @escaping ([String]) -> Void = { _ in }) -> MultipleAnswerQuestion? {
+    private func makeMultipleAnswerQuestion(answerCallback: @escaping ([String]) -> Void = { _ in }) -> MultipleAnswerQuestion? {
         let sut = makeSUT()
         let controller = sut.questionViewController(for: multipleAnswerQuestion, answerCallback: answerCallback) as? UIHostingController<MultipleAnswerQuestion>
         return controller?.rootView
     }
 
     
-    func makeResults() -> (view: ResultView, presenter: ResultsPresenter)? {
-        let sut = makeSUT()
+    private func makeResults(playAgain: @escaping () -> Void = {}) -> (view: ResultView, presenter: ResultsPresenter)? {
+        let sut = makeSUT(playAgain: playAgain)
 
         let presenter = ResultsPresenter(userAnswers: correctAnswers, correctAnswers: correctAnswers, scorer: BasicScore.score)
         
