@@ -12,10 +12,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     var quiz: Quiz?
-
+    private lazy var navigationController = UINavigationController()
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        
+        startNewQuiz()
+    }
+    
+    private func startNewQuiz() {
         
         let question1 = Question.singleAnswer("What's Mike's nationality?")
         let question2 = Question.multipleAnswer("What are Sasha's nationalities?")
@@ -34,21 +44,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let correctAnswers = [(question1, [option3]), (question2, [option5, option6])]
         
-        let navigationController = UINavigationController()
-        
-       
-        let factory = iOSSwiftUIViewControllerFactory(options: options, correctAnswers: correctAnswers)
+        let factory = iOSSwiftUIViewControllerFactory(options: options, correctAnswers: correctAnswers, playAgain: startNewQuiz)
         
         let router = NavigationControllerRouter(navigationController, factory: factory)
         
         quiz = Quiz.start(questions: questions, delegate: router)
-       
-        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-        window?.windowScene = windowScene
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
-        
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
