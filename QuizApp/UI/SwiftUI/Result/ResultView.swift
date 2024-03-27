@@ -15,11 +15,19 @@ struct ResultView: View {
     let playAgain: () -> Void
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .leading, spacing: spacing) {
             HeaderView(title: title, subtitle: summary)
+            List(answers, id: \.question) { model in
+                ResultAnswerCell(model: model)
+            }
+            .listStyle(.inset)
             Spacer()
+            
+            RoundedButton(title: "Play again", action: playAgain)
+                .padding()
         }
     }
+    private let spacing: CGFloat = 0
 }
 
 #Preview {
@@ -38,27 +46,27 @@ struct TestResultView: View {
                 summary: "You got 2/5 correct",
                 answers: [
                     .init(
-                        question: "What's the anser to question #001?",
+                        question: "What's the answer to question #001?",
                         answer: "A correct answer",
                         wrongAnswer: "A wrong answer"
                     ),
                     .init(
-                        question: "What's the anser to question #002?",
+                        question: "What's the answer to question #002?",
                         answer: "A correct answer",
                         wrongAnswer: nil
                     ),
                     .init(
-                        question: "What's the anser to question #003?",
+                        question: "What's the anwser to question #003?",
                         answer: "A correct answer",
                         wrongAnswer: "A wrong answer"
                     ),
                     .init(
-                        question: "What's the anser to question #004?",
+                        question: "What's the answer to question #004?",
                         answer: "A correct answer",
                         wrongAnswer: nil
                     ),
                     .init(
-                        question: "What's the anser to question #005?",
+                        question: "What's the answer to question #005?",
                         answer: "A correct answer",
                         wrongAnswer: "A wrong answer"
                     )
