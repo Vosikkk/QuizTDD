@@ -26,18 +26,18 @@ final class iOSSwiftUINavigationAdapter: QuizDelegate {
         correctAnswers.map { $0.question }
     }
     
-    private let navigation: UINavigationController
+    private let show: (UIViewController) -> Void
     
     private let playAgain: () -> Void
     
     
     init(
-        navigation: UINavigationController,
+        show: @escaping (UIViewController) -> Void,
         options: [Question: Answer],
         correctAnswers: Answers,
         playAgain: @escaping () -> Void
     ) {
-        self.navigation = navigation
+        self.show = show
         self.options = options
         self.correctAnswers = correctAnswers
         self.playAgain = playAgain
@@ -112,10 +112,6 @@ final class iOSSwiftUINavigationAdapter: QuizDelegate {
                     question: value,
                     store: .init(options: options, handler: answerCallback)))
         }
-    }
-    
-    private func show(_ controller: UIViewController) {
-        navigation.setViewControllers([controller], animated: true)
     }
 }
 

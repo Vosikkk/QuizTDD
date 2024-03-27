@@ -45,7 +45,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let correctAnswers = [(question1, [option3]), (question2, [option5, option6])]
         
         let adapter = iOSSwiftUINavigationAdapter(
-            navigation: navigationController,
+            // make it flexible
+            show: { [navigationController] in
+                navigationController.setViewControllers([$0], animated: true)
+            },
             options: options,
             correctAnswers: correctAnswers,
             playAgain: startNewQuiz
