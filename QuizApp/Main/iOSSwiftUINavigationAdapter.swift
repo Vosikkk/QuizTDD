@@ -9,30 +9,53 @@ import SwiftUI
 import UIKit
 import QuizEngine
 
-final class iOSSwiftUIViewControllerFactory: ViewControllerFactory {
+final class iOSSwiftUINavigationAdapter: QuizDelegate {
+   
+
+    typealias Question = QuizEngine.Question<String>
     
-    typealias Answers = [(question: Question<String>, answer: [String])]
+    typealias Answer = [String]
     
-    private let options: [Question<String>: [String]]
+    typealias Answers = [(question: Question, answer: Answer)]
+    
+    private let options: [Question: Answer]
     
     private let correctAnswers: Answers
     
-    private var questions: [Question<String>] {
+    private var questions: [Question] {
         correctAnswers.map { $0.question }
     }
+    
+    private let navigation: UINavigationController
     
     private let playAgain: () -> Void
     
     
-    init(options: [Question<String>: [String]], correctAnswers: Answers, playAgain: @escaping () -> Void) {
+    init(
+        navigation: UINavigationController,
+        options: [Question: Answer],
+        correctAnswers: Answers,
+        playAgain: @escaping () -> Void
+    ) {
+        self.navigation = navigation
         self.options = options
         self.correctAnswers = correctAnswers
         self.playAgain = playAgain
     }
     
     
-    func questionViewController(for question: Question<String>,
-                                answerCallback: @escaping ([String]) -> Void
+    
+    func answer(for question: Question, completion: @escaping (Answer) -> Void) {
+       show(questionViewController(for: question, answerCallback: completion))
+    }
+    
+    func didCompleteQuiz(withAnswers answers: [(question: Question, answer: Answer)]) {
+       show(resultsViewController(for: answers))
+    }
+    
+    
+    private func questionViewController(for question: Question,
+                                answerCallback: @escaping (Answer) -> Void
     ) -> UIViewController {
         guard let options = options[question] else {
             fatalError("Couldn't find options for qoestion: \(question)")
@@ -45,7 +68,7 @@ final class iOSSwiftUIViewControllerFactory: ViewControllerFactory {
     }
     
     
-    func resultsViewController(for userAnswers: Answers) -> UIViewController {
+    private func resultsViewController(for userAnswers: Answers) -> UIViewController {
         let presenter = ResultsPresenter(
             userAnswers: userAnswers,
             correctAnswers: correctAnswers,
@@ -62,12 +85,12 @@ final class iOSSwiftUIViewControllerFactory: ViewControllerFactory {
     }
     
     
-    
     // MARK: - Helpers
     
-    private func questionViewController(for question: Question<String>,
-                                        options: [String],
-                                        answerCallback: @escaping ([String]) -> Void
+    private func questionViewController(
+        for question: Question,
+        options: Answer,
+        answerCallback: @escaping (Answer) -> Void
     ) -> UIViewController {
         
         let presenter = QuestionPresenter(questions: questions, question: question)
@@ -89,6 +112,10 @@ final class iOSSwiftUIViewControllerFactory: ViewControllerFactory {
                     question: value,
                     store: .init(options: options, handler: answerCallback)))
         }
+    }
+    
+    private func show(_ controller: UIViewController) {
+        navigation.pushViewController(controller, animated: true)
     }
 }
 

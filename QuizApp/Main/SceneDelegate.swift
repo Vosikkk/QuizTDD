@@ -44,11 +44,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let correctAnswers = [(question1, [option3]), (question2, [option5, option6])]
         
-        let factory = iOSSwiftUIViewControllerFactory(options: options, correctAnswers: correctAnswers, playAgain: startNewQuiz)
+        let adapter = iOSSwiftUINavigationAdapter(
+            navigation: navigationController,
+            options: options,
+            correctAnswers: correctAnswers,
+            playAgain: startNewQuiz
+        )
         
-        let router = NavigationControllerRouter(navigationController, factory: factory)
-        
-        quiz = Quiz.start(questions: questions, delegate: router)
+        quiz = Quiz.start(questions: questions, delegate: adapter)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -78,7 +81,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
 

@@ -130,13 +130,6 @@ final class NavigationControllerRouterTest: XCTestCase {
         _ = button.target?.perform(button.action, with: nil)
     }
     
-    private class NonAnimatedNavigationController: UINavigationController {
-        override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-            super.pushViewController(viewController, animated: false)
-        }
-    }
-    
-    
     private class ViewControllerFactoryStub: ViewControllerFactory {
       
         private var stubbedQuestions: [Question<String>: UIViewController] = [:]
