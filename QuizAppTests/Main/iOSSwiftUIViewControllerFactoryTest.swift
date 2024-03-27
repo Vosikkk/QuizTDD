@@ -61,19 +61,19 @@ final class iOSSwiftUIViewControllerFactoryTest: XCTestCase {
         XCTAssertEqual(view.store.options.map(\.text), options[multipleAnswerQuestion])
     }
    
-    func test_resultViewController_createsControllerWithSummary() {
-        let results = makeResultController()
-        XCTAssertEqual(results.controller.summary, results.presenter.summary)
+    func test_resultViewController_createsControllerWithSummary() throws {
+        let (view, presenter) =  try XCTUnwrap(makeResults())
+        XCTAssertEqual(view.summary, presenter.summary)
     }
     
-    func test_resultViewController_createsControllerWithPresentableAnswers() {
-        let results = makeResultController()
-        XCTAssertEqual(results.controller.answers.count, results.presenter.presentableAnswers.count)
+    func test_resultViewController_createsControllerWithPresentableAnswers() throws {
+        let (view, presenter) =  try XCTUnwrap(makeResults())
+        XCTAssertEqual(view.answers, presenter.presentableAnswers)
     }
     
-    func test_resultViewController_createsControllerWithTitle() {
-        let results = makeResultController()
-        XCTAssertEqual(results.controller.title, results.presenter.title)
+    func test_resultViewController_createsControllerWithTitle() throws {
+        let (view, presenter) =  try XCTUnwrap(makeResults())
+        XCTAssertEqual(view.title, presenter.title)
     }
     
     
@@ -114,15 +114,13 @@ final class iOSSwiftUIViewControllerFactoryTest: XCTestCase {
     }
 
     
-    func makeResultController() -> (controller: ResultsViewController, presenter: ResultsPresenter) {
-        let userAnswers = [(singleAnswerQuestion, ["A1"]), (multipleAnswerQuestion, ["A4, A5"])]
-       
+    func makeResults() -> (view: ResultView, presenter: ResultsPresenter)? {
         let sut = makeSUT()
 
-        let presenter = ResultsPresenter(userAnswers: userAnswers, correctAnswers: correctAnswers, scorer: BasicScore.score)
+        let presenter = ResultsPresenter(userAnswers: correctAnswers, correctAnswers: correctAnswers, scorer: BasicScore.score)
         
-        let controller = sut.resultsViewController(for: userAnswers) as! ResultsViewController
+        let controller = sut.resultsViewController(for: correctAnswers) as? UIHostingController<ResultView>
         
-        return (controller, presenter)
+        return controller.map { ($0.rootView, presenter) }
     }
 }

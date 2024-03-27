@@ -34,15 +34,28 @@ final class iOSSwiftUIViewControllerFactory: ViewControllerFactory {
         guard let options = options[question] else {
             fatalError("Couldn't find options for qoestion: \(question)")
         }
-       return questionViewController(for: question, options: options, answerCallback: answerCallback)
+       return questionViewController(
+        for: question,
+        options: options,
+        answerCallback: answerCallback
+       )
     }
     
     
     func resultsViewController(for userAnswers: Answers) -> UIViewController {
-        let presenter = ResultsPresenter(userAnswers: userAnswers, correctAnswers: correctAnswers, scorer: BasicScore.score)
-        let controller = ResultsViewController(summary: presenter.summary, answers: presenter.presentableAnswers)
-        controller.title = presenter.title
-        return controller
+        let presenter = ResultsPresenter(
+            userAnswers: userAnswers,
+            correctAnswers: correctAnswers,
+            scorer: BasicScore.score
+        )
+        return UIHostingController(
+            rootView: ResultView(
+                title: presenter.title,
+                summary: presenter.summary,
+                answers: presenter.presentableAnswers,
+                playAgain: { }
+            )
+        )
     }
     
     
@@ -53,7 +66,9 @@ final class iOSSwiftUIViewControllerFactory: ViewControllerFactory {
                                         options: [String],
                                         answerCallback: @escaping ([String]) -> Void
     ) -> UIViewController {
+        
         let presenter = QuestionPresenter(questions: questions, question: question)
+        
         switch question {
         case .singleAnswer(let value):
             return UIHostingController(
@@ -71,23 +86,6 @@ final class iOSSwiftUIViewControllerFactory: ViewControllerFactory {
                     question: value,
                     store: .init(options: options, handler: answerCallback)))
         }
-    }
-    
-    private func questionViewController(for question: Question<String>,
-                                        value: String,
-                                        options: [String],
-                                        allowMultipleSelection: Bool,
-                                        answerCallback: @escaping ([String]) -> Void
-    ) -> QuestionViewController {
-        let presenter = QuestionPresenter(questions: questions, question: question)
-        let controller = QuestionViewController(
-            question: value,
-            options: options,
-            allowMultipleSelection: allowMultipleSelection,
-            selection: answerCallback
-        )
-        controller.title = presenter.title
-        return controller
     }
 }
 
