@@ -9,6 +9,12 @@ import UIKit
 
 
 class NonAnimatedNavigationController: UINavigationController {
+    
+    
+    override func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
+        super.setViewControllers(viewControllers, animated: false)
+    }
+    
     override func pushViewController(
         _ viewController: UIViewController,
         animated: Bool

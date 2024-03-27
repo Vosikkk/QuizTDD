@@ -97,29 +97,29 @@ final class iOSSwiftUINavigationAdapterTest: XCTestCase {
     }
     
     
-    func test_answerForQuestion_pushesQuestionToNavigationStack() {
+    func test_answerForQuestion_replacesNavigationStack() {
         let (sut, navigation) = makeSUT()
         
         sut.answer(for: singleAnswerQuestion) { _ in }
+        XCTAssertEqual(navigation.viewControllers.count, 1)
+        XCTAssertTrue(navigation.viewControllers.first is UIHostingController<SingleAnswerQuestion>)
         
         sut.answer(for: multipleAnswerQuestion) { _ in }
-       
-        XCTAssertEqual(navigation.viewControllers.count, 2)
-        XCTAssertTrue(navigation.viewControllers.first is UIHostingController<SingleAnswerQuestion>)
-        XCTAssertTrue(navigation.viewControllers.last is UIHostingController<MultipleAnswerQuestion>)
+        XCTAssertEqual(navigation.viewControllers.count, 1)
+        XCTAssertTrue(navigation.viewControllers.first is UIHostingController<MultipleAnswerQuestion>)
     }
     
     
-    func test_didCompleteQuiz_pushesResultToNavigationStack() {
+    func test_didCompleteQuiz_replacesNavigationStack() {
         let (sut, navigation) = makeSUT()
         
         sut.didCompleteQuiz(withAnswers: correctAnswers)
+        XCTAssertEqual(navigation.viewControllers.count, 1)
+        XCTAssertTrue(navigation.viewControllers.first is UIHostingController<ResultView>)
         
         sut.didCompleteQuiz(withAnswers: correctAnswers)
-       
-        XCTAssertEqual(navigation.viewControllers.count, 2)
+        XCTAssertEqual(navigation.viewControllers.count, 1)
         XCTAssertTrue(navigation.viewControllers.first is UIHostingController<ResultView>)
-        XCTAssertTrue(navigation.viewControllers.last is UIHostingController<ResultView>)
     }
     
     
