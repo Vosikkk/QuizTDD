@@ -10,15 +10,15 @@ import UIKit
 import QuizEngine
 
 
-class QuizNavigationStore {
+class QuizNavigationStore: ObservableObject {
+    
+    @Published var currentView: CurrentView?
     
     enum CurrentView {
         case single(SingleAnswerQuestion)
         case multiple(MultipleAnswerQuestion)
         case result(ResultView)
     }
-    
-    var currentView: CurrentView?
 }
 
 
