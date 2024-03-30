@@ -12,6 +12,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     var quiz: Quiz?
+    var navStore: QuizNavigationStore = QuizNavigationStore()
+    
     private lazy var navigationController = UINavigationController()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -46,8 +48,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let adapter = iOSSwiftUINavigationAdapter(
             // make it flexible
-            show: { [navigationController] in
-                navigationController.setViewControllers([$0], animated: true)
+            show: { [navStore] in
+                navStore.currentView = $0
             },
             options: options,
             correctAnswers: correctAnswers,

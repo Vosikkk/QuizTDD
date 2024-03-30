@@ -9,9 +9,21 @@ import SwiftUI
 import UIKit
 import QuizEngine
 
+
+class QuizNavigationStore {
+    
+    enum CurrentView {
+        case single(SingleAnswerQuestion)
+        case multiple(MultipleAnswerQuestion)
+        case result(ResultView)
+    }
+    
+    var currentView: CurrentView?
+}
+
+
 final class iOSSwiftUINavigationAdapter: QuizDelegate {
    
-
     typealias Question = QuizEngine.Question<String>
     
     typealias Answer = [String]
@@ -26,13 +38,13 @@ final class iOSSwiftUINavigationAdapter: QuizDelegate {
         correctAnswers.map { $0.question }
     }
     
-    private let show: (UIViewController) -> Void
+    private let show: (QuizNavigationStore.CurrentView?) -> Void
     
     private let playAgain: () -> Void
     
     
     init(
-        show: @escaping (UIViewController) -> Void,
+        show: @escaping (QuizNavigationStore.CurrentView?) -> Void,
         options: [Question: Answer],
         correctAnswers: Answers,
         playAgain: @escaping () -> Void
@@ -44,43 +56,51 @@ final class iOSSwiftUINavigationAdapter: QuizDelegate {
     }
     
     
-    
     func answer(for question: Question, completion: @escaping (Answer) -> Void) {
-       show(questionViewController(for: question, answerCallback: completion))
-    }
-    
-    func didCompleteQuiz(withAnswers answers: [(question: Question, answer: Answer)]) {
-       show(resultsViewController(for: answers))
-    }
-    
-    
-    private func questionViewController(for question: Question,
-                                answerCallback: @escaping (Answer) -> Void
-    ) -> UIViewController {
+        
         guard let options = options[question] else {
             fatalError("Couldn't find options for qoestion: \(question)")
         }
-       return questionViewController(
-        for: question,
-        options: options,
-        answerCallback: answerCallback
-       )
+        
+        let presenter = QuestionPresenter(questions: questions, question: question)
+        
+        switch question {
+        case .singleAnswer(let value):
+            show(.single(SingleAnswerQuestion(
+                title: presenter.title,
+                question: value,
+                options: options,
+                selection: { completion([$0]) } 
+            )
+            )
+            )
+            
+        case .multipleAnswer(let value):
+            show(.multiple(MultipleAnswerQuestion(
+                title: presenter.title,
+                question: value,
+                store: .init(options: options, handler: completion)
+            )
+            )
+            )
+        }
     }
     
     
-    private func resultsViewController(for userAnswers: Answers) -> UIViewController {
+    func didCompleteQuiz(withAnswers answers: Answers) {
         let presenter = ResultsPresenter(
-            userAnswers: userAnswers,
+            userAnswers: answers,
             correctAnswers: correctAnswers,
             scorer: BasicScore.score
         )
-        return UIHostingController(
-            rootView: ResultView(
-                title: presenter.title,
-                summary: presenter.summary,
-                answers: presenter.presentableAnswers,
-                playAgain: playAgain
-            )
+        
+        show(.result(ResultView(
+            title: presenter.title,
+            summary: presenter.summary,
+            answers: presenter.presentableAnswers,
+            playAgain: playAgain
+        )
+        )
         )
     }
     
