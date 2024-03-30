@@ -20,7 +20,9 @@ struct SingleAnswerQuestion: View {
            
             ForEach(options, id: \.self) { option in
                 SingleTextSelectionCell(text: option, selection: {
-                    selection(option)
+                    withAnimation {
+                        selection(option)
+                    }
                 })
             }
             Spacer()

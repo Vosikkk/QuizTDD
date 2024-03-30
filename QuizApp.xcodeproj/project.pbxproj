@@ -28,6 +28,7 @@
 		38767FCB2B8AB5B500F19F0F /* QuestionViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38767FCA2B8AB5B500F19F0F /* QuestionViewControllerTest.swift */; };
 		38767FCD2B8AB6AA00F19F0F /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38767FCC2B8AB6AA00F19F0F /* QuestionViewController.swift */; };
 		38767FCF2B8AB7CD00F19F0F /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38767FCE2B8AB7CD00F19F0F /* QuestionViewController.xib */; };
+		3896351A2BB850090097BE3E /* QuizNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389635192BB850090097BE3E /* QuizNavigationView.swift */; };
 		38994A002B93CA4E000D630B /* QuizEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 389949FF2B93CA4E000D630B /* QuizEngine.framework */; };
 		38994A012B93CA4E000D630B /* QuizEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 389949FF2B93CA4E000D630B /* QuizEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38994A042B93CAF4000D630B /* NavigationControllerRouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38994A032B93CAF4000D630B /* NavigationControllerRouterTest.swift */; };
@@ -102,6 +103,7 @@
 		38767FCA2B8AB5B500F19F0F /* QuestionViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewControllerTest.swift; sourceTree = "<group>"; };
 		38767FCC2B8AB6AA00F19F0F /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		38767FCE2B8AB7CD00F19F0F /* QuestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
+		389635192BB850090097BE3E /* QuizNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizNavigationView.swift; sourceTree = "<group>"; };
 		389949FF2B93CA4E000D630B /* QuizEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QuizEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38994A032B93CAF4000D630B /* NavigationControllerRouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerRouterTest.swift; sourceTree = "<group>"; };
 		38994A052B93CCC0000D630B /* NavigationControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerRouter.swift; sourceTree = "<group>"; };
@@ -159,13 +161,13 @@
 		3844C09A2BAB933A00B2503D /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				389635182BB84FAA0097BE3E /* Question */,
 				386D27082BB43F4800404534 /* Result */,
 				38D7A0922BAF803100BD55CB /* Helpers */,
-				3844C09B2BAB936700B2503D /* SingleAnswerQuestion.swift */,
 				38ABBFD32BAD9E7C005CDB58 /* SingleTextSelectionCell.swift */,
 				38ABBFDD2BAE3526005CDB58 /* MultipleSelectionStore.swift */,
-				38ABBFDF2BAE35E4005CDB58 /* MultipleQuestionAnswer.swift */,
 				38ABBFE12BAE36F3005CDB58 /* MultipleTextSelectionCell.swift */,
+				389635192BB850090097BE3E /* QuizNavigationView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -229,6 +231,15 @@
 				38D7EA992B9A70180084F0BE /* Main */,
 			);
 			path = QuizAppTests;
+			sourceTree = "<group>";
+		};
+		389635182BB84FAA0097BE3E /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				3844C09B2BAB936700B2503D /* SingleAnswerQuestion.swift */,
+				38ABBFDF2BAE35E4005CDB58 /* MultipleQuestionAnswer.swift */,
+			);
+			path = Question;
 			sourceTree = "<group>";
 		};
 		389949FE2B93CA4E000D630B /* Frameworks */ = {
@@ -572,6 +583,7 @@
 				38767F9B2B8AB4CB00F19F0F /* AppDelegate.swift in Sources */,
 				38ABBFE22BAE36F3005CDB58 /* MultipleTextSelectionCell.swift in Sources */,
 				38ABBFE02BAE35E4005CDB58 /* MultipleQuestionAnswer.swift in Sources */,
+				3896351A2BB850090097BE3E /* QuizNavigationView.swift in Sources */,
 				38D7A0982BAF837300BD55CB /* ResultView.swift in Sources */,
 				38767F9D2B8AB4CB00F19F0F /* SceneDelegate.swift in Sources */,
 				387556412B8BFD4500C34BE4 /* CorrectAnswerCell.swift in Sources */,

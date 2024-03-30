@@ -24,7 +24,9 @@ struct MultipleAnswerQuestion: View {
             Spacer()
             
             RoundedButton(title: "Submit", isEnabled: store.canSubmit) {
-               store.submit()
+                withAnimation {
+                    store.submit()
+                }
             }
             .padding()
         }

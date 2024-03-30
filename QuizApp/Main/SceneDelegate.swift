@@ -5,15 +5,49 @@
 //  Created by Саша Восколович on 25.02.2024.
 //
 
+import SwiftUI
 import UIKit
 import QuizEngine
+
+class QuizAppStore {
+    var quiz: Quiz?
+}
+
+
+@main
+struct QuizApp: App {
+    
+    let appStore: QuizAppStore = QuizAppStore()
+    @StateObject var navStore: QuizNavigationStore = QuizNavigationStore()
+    
+    var body: some Scene {
+        WindowGroup {
+            QuizNavigationView(store: navStore)
+                .onAppear {
+                    startNewQuiz()
+                }
+        }
+    }
+    
+    private func startNewQuiz() {
+        let adapter = iOSSwiftUINavigationAdapter(
+            // make it flexible
+            navigation: navStore,
+            options: options,
+            correctAnswers: correctAnswers,
+            playAgain: startNewQuiz
+        )
+        appStore.quiz = Quiz.start(questions: questions, delegate: adapter)
+    }
+}
+
+
+
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     var quiz: Quiz?
-    var navStore: QuizNavigationStore = QuizNavigationStore()
-    
     private lazy var navigationController = UINavigationController()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -28,35 +62,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func startNewQuiz() {
-        
-        let question1 = Question.singleAnswer("What's Mike's nationality?")
-        let question2 = Question.multipleAnswer("What are Sasha's nationalities?")
-        let questions = [question1, question2]
-        let option1 = "Canadian"
-        let option2 = "American"
-        let option3 = "Ukrainian"
-        let options1 = [option1, option2, option3]
-        
-      
-        let option4 = "Canadian"
-        let option5 = "American"
-        let option6 = "Ukrainian"
-        let options2 = [option4, option5, option6]
-        let options = [question1: options1, question2: options2]
-        
-        let correctAnswers = [(question1, [option3]), (question2, [option5, option6])]
-        
-        let adapter = iOSSwiftUINavigationAdapter(
-            // make it flexible
-            show: { [navStore] in
-                navStore.currentView = $0
-            },
-            options: options,
-            correctAnswers: correctAnswers,
-            playAgain: startNewQuiz
-        )
-        
-        quiz = Quiz.start(questions: questions, delegate: adapter)
+        let factory = iOSUIKitViewControllerFactory(options: options, correctAnswers: correctAnswers)
+        let router = NavigationControllerRouter(navigationController, factory: factory)
+        quiz = Quiz.start(questions: questions, delegate: router)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -88,3 +96,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
+let question1 = Question.singleAnswer("What's Mike's nationality?")
+let question2 = Question.multipleAnswer("What are Sasha's nationalities?")
+let questions = [question1, question2]
+let option1 = "Canadian"
+let option2 = "American"
+let option3 = "Ukrainian"
+let options1 = [option1, option2, option3]
+
+
+let option4 = "Canadian"
+let option5 = "American"
+let option6 = "Ukrainian"
+let options2 = [option4, option5, option6]
+let options = [question1: options1, question2: options2]
+
+let correctAnswers = [(question1, [option3]), (question2, [option5, option6])]

@@ -10,18 +10,6 @@ import UIKit
 import QuizEngine
 
 
-class QuizNavigationStore: ObservableObject {
-    
-    @Published var currentView: CurrentView?
-    
-    enum CurrentView {
-        case single(SingleAnswerQuestion)
-        case multiple(MultipleAnswerQuestion)
-        case result(ResultView)
-    }
-}
-
-
 final class iOSSwiftUINavigationAdapter: QuizDelegate {
    
     typealias Question = QuizEngine.Question<String>
@@ -38,18 +26,19 @@ final class iOSSwiftUINavigationAdapter: QuizDelegate {
         correctAnswers.map { $0.question }
     }
     
-    private let show: (QuizNavigationStore.CurrentView?) -> Void
+   // private let show: (QuizNavigationStore.CurrentView?) -> Void
+    private let navigation: QuizNavigationStore
     
     private let playAgain: () -> Void
     
     
     init(
-        show: @escaping (QuizNavigationStore.CurrentView?) -> Void,
+        navigation: QuizNavigationStore,
         options: [Question: Answer],
         correctAnswers: Answers,
         playAgain: @escaping () -> Void
     ) {
-        self.show = show
+        self.navigation = navigation
         self.options = options
         self.correctAnswers = correctAnswers
         self.playAgain = playAgain
@@ -66,21 +55,20 @@ final class iOSSwiftUINavigationAdapter: QuizDelegate {
         
         switch question {
         case .singleAnswer(let value):
-            show(.single(SingleAnswerQuestion(
+            navigation.currentView = .single(SingleAnswerQuestion(
                 title: presenter.title,
                 question: value,
                 options: options,
                 selection: { completion([$0]) } 
             )
             )
-            )
+            
             
         case .multipleAnswer(let value):
-            show(.multiple(MultipleAnswerQuestion(
+            navigation.currentView = .multiple(MultipleAnswerQuestion(
                 title: presenter.title,
                 question: value,
                 store: .init(options: options, handler: completion)
-            )
             )
             )
         }
@@ -94,12 +82,11 @@ final class iOSSwiftUINavigationAdapter: QuizDelegate {
             scorer: BasicScore.score
         )
         
-        show(.result(ResultView(
+        navigation.currentView = .result(ResultView(
             title: presenter.title,
             summary: presenter.summary,
             answers: presenter.presentableAnswers,
             playAgain: playAgain
-        )
         )
         )
     }
