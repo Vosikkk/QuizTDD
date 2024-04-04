@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3843F1432BBF5991005E3466 /* QuizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3843F1422BBF5991005E3466 /* QuizApp.swift */; };
 		3844C09C2BAB936700B2503D /* SingleAnswerQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3844C09B2BAB936700B2503D /* SingleAnswerQuestion.swift */; };
 		3844C09E2BAB9C3700B2503D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3844C09D2BAB9C3700B2503D /* HeaderView.swift */; };
 		386D270A2BB4419300404534 /* ResultAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386D27092BB4419300404534 /* ResultAnswerCell.swift */; };
@@ -79,6 +80,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3843F1422BBF5991005E3466 /* QuizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizApp.swift; sourceTree = "<group>"; };
 		3844C09B2BAB936700B2503D /* SingleAnswerQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAnswerQuestion.swift; sourceTree = "<group>"; };
 		3844C09D2BAB9C3700B2503D /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		386D27092BB4419300404534 /* ResultAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAnswerCell.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				38767F9A2B8AB4CB00F19F0F /* AppDelegate.swift */,
+				3843F1422BBF5991005E3466 /* QuizApp.swift */,
 				38767F9C2B8AB4CB00F19F0F /* SceneDelegate.swift */,
 				38ABBFD72BADAA24005CDB58 /* iOSSwiftUINavigationAdapter.swift */,
 				389AE6792B94C0CE00532A04 /* iOSUIKitViewControllerFactory.swift */,
@@ -595,6 +598,7 @@
 				389AE67A2B94C0CE00532A04 /* iOSUIKitViewControllerFactory.swift in Sources */,
 				38994A062B93CCC0000D630B /* NavigationControllerRouter.swift in Sources */,
 				38767FCD2B8AB6AA00F19F0F /* QuestionViewController.swift in Sources */,
+				3843F1432BBF5991005E3466 /* QuizApp.swift in Sources */,
 				3844C09C2BAB936700B2503D /* SingleAnswerQuestion.swift in Sources */,
 				387556332B8BDF3700C34BE4 /* ResultsViewController.swift in Sources */,
 				386D270A2BB4419300404534 /* ResultAnswerCell.swift in Sources */,
