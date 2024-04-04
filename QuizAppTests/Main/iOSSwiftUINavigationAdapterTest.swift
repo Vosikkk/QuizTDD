@@ -168,7 +168,7 @@ final class iOSSwiftUINavigationAdapterTest: XCTestCase {
         let navigation = QuizNavigationStore()
         
         let sut = iOSSwiftUINavigationAdapter(
-            show: { [navigation] in navigation.currentView = $0 },
+            navigation: navigation,
             options: options,
             correctAnswers: correctAnswers,
             playAgain: playAgain
