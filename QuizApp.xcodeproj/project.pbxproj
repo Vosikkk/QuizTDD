@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3843F1432BBF5991005E3466 /* QuizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3843F1422BBF5991005E3466 /* QuizApp.swift */; };
+		3843F1452BBF5DEF005E3466 /* DemoQuizData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3843F1442BBF5DEF005E3466 /* DemoQuizData.swift */; };
 		3844C09C2BAB936700B2503D /* SingleAnswerQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3844C09B2BAB936700B2503D /* SingleAnswerQuestion.swift */; };
 		3844C09E2BAB9C3700B2503D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3844C09D2BAB9C3700B2503D /* HeaderView.swift */; };
 		386D270A2BB4419300404534 /* ResultAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386D27092BB4419300404534 /* ResultAnswerCell.swift */; };
@@ -81,6 +82,7 @@
 
 /* Begin PBXFileReference section */
 		3843F1422BBF5991005E3466 /* QuizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizApp.swift; sourceTree = "<group>"; };
+		3843F1442BBF5DEF005E3466 /* DemoQuizData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoQuizData.swift; sourceTree = "<group>"; };
 		3844C09B2BAB936700B2503D /* SingleAnswerQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAnswerQuestion.swift; sourceTree = "<group>"; };
 		3844C09D2BAB9C3700B2503D /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		386D27092BB4419300404534 /* ResultAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAnswerCell.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				389AE6792B94C0CE00532A04 /* iOSUIKitViewControllerFactory.swift */,
 				38767FA32B8AB4CD00F19F0F /* Assets.xcassets */,
 				38767FA82B8AB4CD00F19F0F /* Info.plist */,
+				3843F1442BBF5DEF005E3466 /* DemoQuizData.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				3844C09C2BAB936700B2503D /* SingleAnswerQuestion.swift in Sources */,
 				387556332B8BDF3700C34BE4 /* ResultsViewController.swift in Sources */,
 				386D270A2BB4419300404534 /* ResultAnswerCell.swift in Sources */,
+				3843F1452BBF5DEF005E3466 /* DemoQuizData.swift in Sources */,
 				38D7A0942BAF805F00BD55CB /* RoundedButton.swift in Sources */,
 				389AE6762B94BF1600532A04 /* ViewControllerFactory.swift in Sources */,
 				38D7A0962BAF816D00BD55CB /* Extenstions+View.swift in Sources */,
