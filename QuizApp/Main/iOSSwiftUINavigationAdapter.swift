@@ -63,7 +63,6 @@ final class iOSSwiftUINavigationAdapter: QuizDelegate {
             )
             )
             
-            
         case .multipleAnswer(let value):
             navigation.currentView = .multiple(MultipleAnswerQuestion(
                 title: presenter.title,

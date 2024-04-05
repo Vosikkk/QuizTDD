@@ -54,8 +54,7 @@ final class ResultsPresenter {
     }
     
     private func formattedWrongAnswer(_ userAnswers: [String], _ correctAnswer: [String]) -> String? {
-        return Set(correctAnswer) == Set(userAnswers) ? nil : formattedAnswer(userAnswers)
-        //  correctAnswer == userAnswers ? nil : formattedAnswer(userAnswers)
+          correctAnswer == userAnswers ? nil : formattedAnswer(userAnswers)
     }
     
     private func formattedAnswer( _ answer: [String]) -> String {

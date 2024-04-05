@@ -32,10 +32,10 @@ struct QuizApp: App {
         let adapter = iOSSwiftUINavigationAdapter(
             // make it flexible
             navigation: navStore,
-            options: options,
-            correctAnswers: correctAnswers,
+            options: demoQuiz.options,
+            correctAnswers: demoQuiz.correctAnswers,
             playAgain: startNewQuiz
         )
-        appStore.quiz = Quiz.start(questions: questions, delegate: adapter)
+        appStore.quiz = Quiz.start(questions: demoQuiz.questions, delegate: adapter)
     }
 }
