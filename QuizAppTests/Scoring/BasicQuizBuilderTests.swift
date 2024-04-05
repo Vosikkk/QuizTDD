@@ -7,7 +7,7 @@
 
 import XCTest
 import QuizEngine
-@testable import QuizApp
+import QuizApp
 
 final class BasicQuizBuilderTests: XCTestCase {
 
@@ -55,7 +55,7 @@ final class BasicQuizBuilderTests: XCTestCase {
         let sut = try BasicQuizBuilder(
             multipleAnswerQuestion: "q1",
             options: ["o1", "o2", "o3"],
-            answers:["o1", "o2"]
+            answer: ["o1", "o2"]
         )
         
         let result = sut.build()
@@ -72,7 +72,7 @@ final class BasicQuizBuilderTests: XCTestCase {
             try BasicQuizBuilder(
                 multipleAnswerQuestion: "q1",
                 options: ["o1", "o1", "o3"],
-                answers: ["o1", "o2"]
+                answer: ["o1", "o2"]
                 ),
             throws: .duplicateOptions(["o1", "o1", "o3"])
         )
@@ -84,7 +84,7 @@ final class BasicQuizBuilderTests: XCTestCase {
             try BasicQuizBuilder(
                 multipleAnswerQuestion: "q1",
                 options: ["o1", "o2", "o3"],
-                answers: ["o4", "o5"]
+                answer: ["o4", "o5"]
                 ),
             throws: .missingAnswerInOptions(answer: ["o4", "o5"], options: ["o1", "o2", "o3"])
         )
@@ -95,12 +95,12 @@ final class BasicQuizBuilderTests: XCTestCase {
         var sut = try BasicQuizBuilder(
             multipleAnswerQuestion: "q1",
             options: ["o1", "o2", "o3"],
-            answers: ["o1", "o2"])
+            answer: ["o1", "o2"])
         
         try sut.add(
             multipleAnswerQuestion: "q2",
             options: ["o3", "o4", "o5"],
-            answers: ["o3", "o5"])
+            answer: ["o3", "o5"])
         
         let result = sut.build()
         

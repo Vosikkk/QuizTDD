@@ -309,9 +309,9 @@
 				38767F9C2B8AB4CB00F19F0F /* SceneDelegate.swift */,
 				38ABBFD72BADAA24005CDB58 /* iOSSwiftUINavigationAdapter.swift */,
 				389AE6792B94C0CE00532A04 /* iOSUIKitViewControllerFactory.swift */,
+				3843F1442BBF5DEF005E3466 /* DemoQuizData.swift */,
 				38767FA32B8AB4CD00F19F0F /* Assets.xcassets */,
 				38767FA82B8AB4CD00F19F0F /* Info.plist */,
-				3843F1442BBF5DEF005E3466 /* DemoQuizData.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
