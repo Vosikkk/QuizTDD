@@ -16,6 +16,10 @@ struct BasicQuiz {
 struct NonEmptyOptions {
     let head: String
     let tail: [String]
+    
+    var all: [String] {
+        [head] + tail
+    }
 }
 
 struct BasicQuizBuilder {
@@ -23,22 +27,36 @@ struct BasicQuizBuilder {
     private let questions: [Question<String>]
     private let options: [Question<String>: [String]]
     
-    init(singleAnswerQuestion: String, options: NonEmptyOptions) {
+    init(singleAnswerQuestion: String, options: NonEmptyOptions) throws {
+        
+        let allOptions = options.all
+        
+        guard Set(allOptions).count == allOptions.count else {
+            throw AddingError.duplicateOptions(allOptions)
+        }
+        
         let question = Question.singleAnswer(singleAnswerQuestion)
         self.questions = [question]
-        self.options = [question: [options.head] + options.tail]
+        self.options = [question: allOptions]
     }
     
     func build() -> BasicQuiz {
         BasicQuiz(questions: questions, options: options)
+    }
+    
+    enum AddingError: Equatable, Error {
+        case duplicateOptions([String])
     }
 }
 
 final class BasicQuizBuilderTests: XCTestCase {
 
     
-    func test_initWithSingleAnswerQuestion() {
-        let sut = BasicQuizBuilder(singleAnswerQuestion: "q1", options: NonEmptyOptions(head: "o1", tail: ["o2", "o3"]))
+    func test_initWithSingleAnswerQuestion() throws {
+        let sut = try BasicQuizBuilder(
+            singleAnswerQuestion: "q1",
+            options: NonEmptyOptions(head: "o1", tail: ["o2", "o3"])
+        )
         
         let result = sut.build()
         
@@ -46,6 +64,21 @@ final class BasicQuizBuilderTests: XCTestCase {
         
         XCTAssertEqual(result.options, [.singleAnswer("q1"): ["o1", "o2", "o3"]])
     }
-   
+    
+    
+    func test_initWithSingleAnswerQuestion_duplicateOptions_throw() throws {
+        
+        XCTAssertThrowsError(
+            try BasicQuizBuilder(
+                singleAnswerQuestion: "q1",
+                options: NonEmptyOptions(head: "o1", tail: ["o1", "o3"])
+            )
+        ) { error in
+            XCTAssertEqual(
+                error as? BasicQuizBuilder.AddingError,
+                BasicQuizBuilder.AddingError.duplicateOptions(["o1", "o1", "o3"])
+            )
+        }
+    }
 }
     
