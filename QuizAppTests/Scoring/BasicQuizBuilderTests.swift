@@ -18,6 +18,11 @@ struct NonEmptyOptions {
     let head: String
     let tail: [String]
     
+    init(_ head: String, _ tail: [String]) {
+        self.head = head
+        self.tail = tail
+    }
+    
     var all: [String] {
         [head] + tail
     }
@@ -129,7 +134,7 @@ final class BasicQuizBuilderTests: XCTestCase {
     func test_initWithSingleAnswerQuestion() throws {
         let sut = try BasicQuizBuilder(
             singleAnswerQuestion: "q1",
-            options: NonEmptyOptions(head: "o1", tail: ["o2", "o3"]),
+            options: ["o1", "o2", "o3"],
             answer: "o1"
         )
         
@@ -147,7 +152,7 @@ final class BasicQuizBuilderTests: XCTestCase {
         assert(
             try BasicQuizBuilder(
                 singleAnswerQuestion: "q1",
-                options: NonEmptyOptions(head: "o1", tail: ["o1", "o3"]),
+                options: ["o1", "o1", "o3"],
                 answer: "o1"
                 ),
             throws: .duplicateOptions(["o1", "o1", "o3"])
@@ -158,7 +163,7 @@ final class BasicQuizBuilderTests: XCTestCase {
         assert(
             try BasicQuizBuilder(
                 singleAnswerQuestion: "q1",
-                options: NonEmptyOptions(head: "o1", tail: ["o2", "o3"]),
+                options: ["o1", "o2", "o3"],
                 answer: "o4"
                 ),
             throws: .missingAnswerInOptions(answer: ["o4"], options: ["o1", "o2", "o3"])
@@ -168,8 +173,8 @@ final class BasicQuizBuilderTests: XCTestCase {
     func test_initWithMultipleAnswerQuestion() throws {
         let sut = try BasicQuizBuilder(
             multipleAnswerQuestion: "q1",
-            options: NonEmptyOptions(head: "o1", tail: ["o2", "o3"]),
-            answers: NonEmptyOptions(head: "o1", tail: ["o2"])
+            options: ["o1", "o2", "o3"],
+            answers:["o1", "o2"]
         )
         
         let result = sut.build()
@@ -181,17 +186,64 @@ final class BasicQuizBuilderTests: XCTestCase {
         assertEqual(result.correctAnswers, [(.multipleAnswer("q1"), ["o1", "o2"])])
     }
     
+    func test_initWithMultipleAnswerQuestion_duplicateOptions_throw() throws {
+        assert(
+            try BasicQuizBuilder(
+                multipleAnswerQuestion: "q1",
+                options: ["o1", "o1", "o3"],
+                answers: ["o1", "o2"]
+                ),
+            throws: .duplicateOptions(["o1", "o1", "o3"])
+        )
+    }
+    
+    
+    func test_initWithMultipleAnswerQuestion_missingAnswerInOptions_throw() throws {
+        assert(
+            try BasicQuizBuilder(
+                multipleAnswerQuestion: "q1",
+                options: ["o1", "o2", "o3"],
+                answers: ["o4", "o5"]
+                ),
+            throws: .missingAnswerInOptions(answer: ["o4", "o5"], options: ["o1", "o2", "o3"])
+        )
+    }
+    
+    
+    func test_addMultipleAnswerQuestion() throws {
+        var sut = try BasicQuizBuilder(
+            multipleAnswerQuestion: "q1",
+            options: ["o1", "o2", "o3"],
+            answers: ["o1", "o2"])
+        
+        try sut.add(
+            multipleAnswerQuestion: "q2",
+            options: ["o3", "o4", "o5"],
+            answers: ["o3", "o5"])
+        
+        let result = sut.build()
+        
+        XCTAssertEqual(result.questions, [.multipleAnswer("q1"), .multipleAnswer("q2")])
+        XCTAssertEqual(result.options, [
+            .multipleAnswer("q1"): ["o1", "o2", "o3"],
+            .multipleAnswer("q2"): ["o3", "o4", "o5"]
+        ])
+        assertEqual(result.correctAnswers, [
+            (.multipleAnswer("q1"), ["o1", "o2"]),
+            (.multipleAnswer("q2"), ["o3", "o5"])
+        ])
+    }
     
     
     func test_addSingleAnswerQuestion() throws {
         var sut = try BasicQuizBuilder(
             singleAnswerQuestion: "q1",
-            options: NonEmptyOptions(head: "o1", tail: ["o2", "o3"]),
+            options: ["o1", "o2", "o3"],
             answer: "o1"
         )
         
         try sut.add(singleAnswerQuestion: "q2",
-                options: NonEmptyOptions(head: "o3", tail: ["o4", "o5"]),
+                options: ["o3", "o4", "o5"],
                 answer: "o3"
         )
         let result = sut.build()
@@ -213,13 +265,13 @@ final class BasicQuizBuilderTests: XCTestCase {
         
         var sut = try BasicQuizBuilder(
             singleAnswerQuestion: "q1",
-            options: NonEmptyOptions(head: "o1", tail: ["o2", "o3"]),
+            options: ["o1", "o2", "o3"],
             answer: "o1"
         )
         
         assert(
             try sut.add(singleAnswerQuestion: "q2",
-                        options: NonEmptyOptions(head: "o3", tail: ["o3", "o5"]),
+                        options:["o3", "o3", "o5"],
                         answer: "o3"
                        ),
             throws: .duplicateOptions(["o3", "o3", "o5"])
@@ -232,13 +284,13 @@ final class BasicQuizBuilderTests: XCTestCase {
         
         var sut = try BasicQuizBuilder(
             singleAnswerQuestion: "q1",
-            options: NonEmptyOptions(head: "o1", tail: ["o2", "o3"]),
+            options: ["o1", "o2", "o3"],
             answer: "o1"
         )
         
         assert(
             try sut.add(singleAnswerQuestion: "q2",
-                        options: NonEmptyOptions(head: "o3", tail: ["o4", "o5"]),
+                        options: ["o3", "o4", "o5"],
                         answer: "o6"
                        ),
             throws: .missingAnswerInOptions(answer: ["o6"], options: ["o3", "o4", "o5"])
@@ -249,12 +301,12 @@ final class BasicQuizBuilderTests: XCTestCase {
         
         var sut = try BasicQuizBuilder(
             singleAnswerQuestion: "q1",
-            options: NonEmptyOptions(head: "o1", tail: ["o2", "o3"]),
+            options: ["o1", "o2", "o3"],
             answer: "o1"
         )
         assert(
             try sut.add(singleAnswerQuestion: "q1",
-                        options: NonEmptyOptions(head: "o3", tail: ["o4", "o5"]),
+                        options: ["o3", "o4", "o5"],
                         answer: "o3"
                        ),
             throws: .duplicateQuestion(.singleAnswer("q1"))
@@ -266,7 +318,7 @@ final class BasicQuizBuilderTests: XCTestCase {
         
         let sut = try BasicQuizBuilder(
             singleAnswerQuestion: "q1",
-            options: NonEmptyOptions(head: "o1", tail: ["o2", "o3"]),
+            options: ["o1", "o2", "o3"],
             answer: "o1"
         ).adding(question: .singleAnswer("q2"),
                  options: ["o3", "o4", "o5"],
@@ -291,7 +343,7 @@ final class BasicQuizBuilderTests: XCTestCase {
         
         let sut = try BasicQuizBuilder(
             singleAnswerQuestion: "q1",
-            options: NonEmptyOptions(head: "o1", tail: ["o2", "o3"]),
+            options: ["o1", "o2", "o3"],
             answer: "o1"
         )
         
@@ -308,7 +360,7 @@ final class BasicQuizBuilderTests: XCTestCase {
         
         let sut = try BasicQuizBuilder(
             singleAnswerQuestion: "q1",
-            options: NonEmptyOptions(head: "o1", tail: ["o2", "o3"]),
+            options: ["o1", "o2", "o3"],
             answer: "o1"
         )
         
@@ -325,7 +377,7 @@ final class BasicQuizBuilderTests: XCTestCase {
         
         let sut = try BasicQuizBuilder(
             singleAnswerQuestion: "q1",
-            options: NonEmptyOptions(head: "o1", tail: ["o2", "o3"]),
+            options: ["o1", "o2", "o3"],
             answer: "o1"
         )
         assert(
@@ -367,3 +419,8 @@ final class BasicQuizBuilderTests: XCTestCase {
 
 }
     
+extension NonEmptyOptions: ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: String...) {
+        self.init(elements[0], Array(elements.dropFirst()))
+    }
+}
