@@ -48,8 +48,14 @@ struct BasicQuizBuilder {
     
     
     mutating func add(singleAnswerQuestion: String, options: NonEmptyOptions, answer: String) throws {
-        
+       
+        let question = Question.singleAnswer(singleAnswerQuestion)
         let allOptions = options.all
+        
+        guard !questions.contains(question) else {
+            throw AddingError.duplicateQuestion(question)
+        }
+        
         guard allOptions.contains(answer) else {
             throw AddingError.missingAnswerInOptions(answer: [answer], options: allOptions)
         }
@@ -57,7 +63,7 @@ struct BasicQuizBuilder {
             throw AddingError.duplicateOptions(allOptions)
         }
         
-        let question = Question.singleAnswer(singleAnswerQuestion)
+    
         var newOptions = self.options
         newOptions[question] = allOptions
 
@@ -75,6 +81,7 @@ struct BasicQuizBuilder {
     enum AddingError: Equatable, Error {
         case duplicateOptions([String])
         case missingAnswerInOptions(answer: [String], options: [String])
+        case duplicateQuestion(Question<String>)
     }
 }
 
@@ -198,6 +205,28 @@ final class BasicQuizBuilderTests: XCTestCase {
             )
         }
     }
+    
+    func test_addSingleAnswerQuestion_duplicateQuestion_throw() throws {
+        
+        var sut = try BasicQuizBuilder(
+            singleAnswerQuestion: "q1",
+            options: NonEmptyOptions(head: "o1", tail: ["o2", "o3"]),
+            answer: "o1"
+        )
+        
+        XCTAssertThrowsError(
+            try sut.add(singleAnswerQuestion: "q1",
+                    options: NonEmptyOptions(head: "o3", tail: ["o4", "o5"]),
+                    answer: "o3"
+            )
+        ) { error in
+            XCTAssertEqual(
+                error as? BasicQuizBuilder.AddingError,
+                BasicQuizBuilder.AddingError.duplicateQuestion(.singleAnswer("q1"))
+            )
+        }
+    }
+    
     
     
    // MARK: - Helpers
