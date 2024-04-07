@@ -10,7 +10,7 @@ import QuizEngine
 import QuizApp
 
 final class BasicQuizBuilderTests: XCTestCase {
-
+    
     
     func test_initWithSingleAnswerQuestion() throws {
         let sut = try BasicQuizBuilder(
@@ -35,7 +35,7 @@ final class BasicQuizBuilderTests: XCTestCase {
                 singleAnswerQuestion: "q1",
                 options: ["o1", "o1", "o3"],
                 answer: "o1"
-                ),
+            ),
             throws: .duplicateOptions(["o1", "o1", "o3"])
         )
     }
@@ -46,7 +46,7 @@ final class BasicQuizBuilderTests: XCTestCase {
                 singleAnswerQuestion: "q1",
                 options: ["o1", "o2", "o3"],
                 answer: "o4"
-                ),
+            ),
             throws: .missingAnswerInOptions(answer: ["o4"], options: ["o1", "o2", "o3"])
         )
     }
@@ -73,7 +73,7 @@ final class BasicQuizBuilderTests: XCTestCase {
                 multipleAnswerQuestion: "q1",
                 options: ["o1", "o1", "o3"],
                 answer: ["o1", "o2"]
-                ),
+            ),
             throws: .duplicateOptions(["o1", "o1", "o3"])
         )
     }
@@ -85,7 +85,7 @@ final class BasicQuizBuilderTests: XCTestCase {
                 multipleAnswerQuestion: "q1",
                 options: ["o1", "o2", "o3"],
                 answer: ["o4", "o5"]
-                ),
+            ),
             throws: .missingAnswerInOptions(answer: ["o4", "o5"], options: ["o1", "o2", "o3"])
         )
     }
@@ -124,19 +124,19 @@ final class BasicQuizBuilderTests: XCTestCase {
         )
         
         try sut.add(singleAnswerQuestion: "q2",
-                options: ["o3", "o4", "o5"],
-                answer: "o3"
+                    options: ["o3", "o4", "o5"],
+                    answer: "o3"
         )
         let result = sut.build()
         
-        XCTAssertEqual(result.questions, 
+        XCTAssertEqual(result.questions,
                        [.singleAnswer("q1"), .singleAnswer("q2")])
         
-        XCTAssertEqual(result.options, 
+        XCTAssertEqual(result.options,
                        [.singleAnswer("q1"): ["o1", "o2", "o3"],
                         .singleAnswer("q2"): ["o3", "o4", "o5"]])
         
-        assertEqual(result.correctAnswers, 
+        assertEqual(result.correctAnswers,
                     [(.singleAnswer("q1"), ["o1"]),
                      (.singleAnswer("q2"), ["o3"])]
         )
@@ -230,9 +230,9 @@ final class BasicQuizBuilderTests: XCTestCase {
         
         assert(
             try sut.adding(question: .singleAnswer("q2"),
-                        options: ["o3", "o3", "o5"],
-                        answer: ["o3"]
-                       ),
+                           options: ["o3", "o3", "o5"],
+                           answer: ["o3"]
+                          ),
             throws: .duplicateOptions(["o3", "o3", "o5"])
         )
     }
@@ -247,9 +247,9 @@ final class BasicQuizBuilderTests: XCTestCase {
         
         assert(
             try sut.adding(question: .singleAnswer("q2"),
-                        options: ["o3", "o4", "o5"],
-                        answer: ["o6"]
-                       ),
+                           options: ["o3", "o4", "o5"],
+                           answer: ["o6"]
+                          ),
             throws: .missingAnswerInOptions(answer: ["o6"], options: ["o3", "o4", "o5"])
         )
     }
@@ -263,16 +263,16 @@ final class BasicQuizBuilderTests: XCTestCase {
         )
         assert(
             try sut.adding(question: .singleAnswer("q1"),
-                        options: ["o3", "o4", "o5"],
-                        answer: ["o3"]
-                       ),
+                           options: ["o3", "o4", "o5"],
+                           answer: ["o3"]
+                          ),
             throws: .duplicateQuestion(.singleAnswer("q1"))
         )
     }
     
     
     
-   // MARK: - Helpers
+    // MARK: - Helpers
     
     private func assertEqual(
         _ a1: [(Question<String>, [String])],
@@ -297,9 +297,8 @@ final class BasicQuizBuilderTests: XCTestCase {
                 )
             }
         }
-
 }
-    
+
 extension NonEmptyOptions: ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: String...) {
         self.init(elements[0], Array(elements.dropFirst()))
