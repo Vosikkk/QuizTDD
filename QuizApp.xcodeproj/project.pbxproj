@@ -33,7 +33,6 @@
 		38767FCF2B8AB7CD00F19F0F /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38767FCE2B8AB7CD00F19F0F /* QuestionViewController.xib */; };
 		3896351A2BB850090097BE3E /* QuizNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389635192BB850090097BE3E /* QuizNavigationView.swift */; };
 		38994A002B93CA4E000D630B /* QuizEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 389949FF2B93CA4E000D630B /* QuizEngine.framework */; };
-		38994A012B93CA4E000D630B /* QuizEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 389949FF2B93CA4E000D630B /* QuizEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38994A042B93CAF4000D630B /* NavigationControllerRouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38994A032B93CAF4000D630B /* NavigationControllerRouterTest.swift */; };
 		38994A062B93CCC0000D630B /* NavigationControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38994A052B93CCC0000D630B /* NavigationControllerRouter.swift */; };
 		389AE6762B94BF1600532A04 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389AE6752B94BF1600532A04 /* ViewControllerFactory.swift */; };
@@ -66,20 +65,6 @@
 			remoteInfo = QuizApp;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		38994A022B93CA4F000D630B /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				38994A012B93CA4E000D630B /* QuizEngine.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3843F1422BBF5991005E3466 /* QuizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizApp.swift; sourceTree = "<group>"; };
@@ -491,7 +476,6 @@
 				38767F932B8AB4CB00F19F0F /* Sources */,
 				38767F942B8AB4CB00F19F0F /* Frameworks */,
 				38767F952B8AB4CB00F19F0F /* Resources */,
-				38994A022B93CA4F000D630B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
